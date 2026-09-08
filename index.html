@@ -12,7 +12,6 @@
         header { background-color: var(--primary-color); color: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .header-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; }
         .logo { font-size: 1.5rem; font-weight: 800; cursor: pointer; color: white; text-decoration: none; letter-spacing: -1px; display: flex; align-items: center; }
-        .logo img { height: 35px; width: auto; }
         .nav-menu { display: flex; gap: 1.2rem; }
         .nav-menu a { color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: color 0.2s; }
         .nav-menu a:hover { color: var(--secondary-color); }
@@ -83,10 +82,7 @@
 
     <header>
         <div class="header-container">
-            <a onclick="showScreen('mainScreen')" class="logo">
-                <img src="logo2.png" alt="성산인사이드" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-                <span style="display:none;">성산인사이드</span>
-            </a>
+            <a onclick="showScreen('mainScreen')" class="logo">성산인사이드</a>
             <nav class="nav-menu">
                 <a onclick="showScreen('toolsScreen')">부가 기능</a>
                 <a onclick="showScreen('mainScreen')">알림 소통</a>
@@ -718,7 +714,6 @@
             document.getElementById('profileTickets').textContent = `${currentUserProfile.tickets || 0} 장`;
         }
         
-        // 로그인 처리 시 '로그인 유지' 체크 여부에 따라 지속성 설정 변경
         window.handleLogin = async (e) => { 
             e.preventDefault(); 
             let email = document.getElementById('loginEmail').value.trim();
@@ -726,7 +721,6 @@
             let rememberMe = document.getElementById('rememberMe').checked;
 
             try {
-                // 체크된 경우 로컬 스토리지에 유지(browserLocalPersistence), 아니면 브라우저 닫을 때까지(browserSessionPersistence)
                 const persistenceType = rememberMe ? browserLocalPersistence : browserSessionPersistence;
                 await setPersistence(auth, persistenceType);
 
@@ -1266,7 +1260,7 @@
         }
 
         window.addSession = async function() {
-            if(!currentUser || currentUser.email !== ADMIN_EMAIL) return alert("관리자만 관리자만 가능합니다.");
+            if(!currentUser || currentUser.email !== ADMIN_EMAIL) return alert("관리자만 가능합니다.");
             const eventId = document.getElementById('adminEventSelect').value;
             const time = document.getElementById('adminSessionTime').value.trim();
             const capacity = parseInt(document.getElementById('adminSessionMax').value);
