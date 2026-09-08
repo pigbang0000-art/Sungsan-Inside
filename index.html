@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUNGSAN_Inside</title>
+    <title>성산인사이드 (복수 관리자 및 로그인 유지 기능 포함)</title>
     <style>
         :root { --primary-color: #3b4890; --secondary-color: #e2e5f3; --text-color: #333333; --bg-color: #f4f5f9; --card-bg: #ffffff; --border-color: #dddddd; --danger-color: #d31900; --point-color: #ff9800; --like-color: #e91e63; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
@@ -382,7 +382,7 @@
                 <form onsubmit="handleLogin(event)">
                     <input type="email" id="loginEmail" class="input-box" placeholder="이메일 아이디 (예: id@sungsan.com)" required>
                     <input type="password" id="loginPw" class="input-box" placeholder="비밀번호" required>
-                    <!-- 로그인 유지 체크박스 추가 -->
+                    <!-- 로그인 유지 체크박스 -->
                     <div style="margin-bottom: 15px; display: flex; align-items: center;">
                         <input type="checkbox" id="rememberMe" style="margin-right: 6px; cursor: pointer;">
                         <label for="rememberMe" style="font-size: 0.9rem; color: #555; cursor: pointer;">로그인 유지하기</label>
@@ -431,7 +431,10 @@
 
         let currentUser = null;
         let currentUserProfile = {};
-        const ADMIN_EMAIL = "bjh140820@gmail.com";
+        
+        // 관리자 이메일 목록 복수 등록
+        const ADMIN_EMAILS = ["bjh140820@gmail.com", "3379nhy9844@gmail.com"];
+        const isAdmin = (user) => user && ADMIN_EMAILS.includes(user.email);
         
         let posts = [];
         let notices = [];
@@ -539,7 +542,7 @@
             }
 
             container.innerHTML = rooms.map(room => {
-                const canDelete = currentUser && currentUser.email === ADMIN_EMAIL;
+                const canDelete = isAdmin(currentUser);
                 return `
                     <div style="display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #eee;">
                         <div>
@@ -556,7 +559,7 @@
         }
 
         window.deleteChatRoom = async function(roomId) {
-            if (!currentUser || currentUser.email !== ADMIN_EMAIL) return alert("관리자만 삭제할 수 있습니다.");
+            if (!isAdmin(currentUser)) return alert("관리자만 삭제할 수 있습니다.");
             if (confirm("정말로 이 채팅방을 삭제하시겠습니까? 대화 내용도 함께 삭제됩니다.")) {
                 try {
                     await remove(ref(db, `chatRooms/${roomId}`));
@@ -696,7 +699,7 @@
                         <span class="point-badge">${currentUserProfile.points || 0}P</span>
                     </span>
                 `;
-                if(currentUser.email === ADMIN_EMAIL) {
+                if(isAdmin(currentUser)) {
                     html += `<button class="admin-btn" onclick="showScreen('adminScreen')">👑 관리자 창</button>`;
                 }
                 html += `<button onclick="handleLogout()">로그아웃</button>`;
@@ -714,7 +717,6 @@
             document.getElementById('profileTickets').textContent = `${currentUserProfile.tickets || 0} 장`;
         }
         
-        // 로그인 처리 시 '로그인 유지' 체크 여부에 따라 지속성 설정 변경
         window.handleLogin = async (e) => { 
             e.preventDefault(); 
             let email = document.getElementById('loginEmail').value.trim();
@@ -722,7 +724,6 @@
             let rememberMe = document.getElementById('rememberMe').checked;
 
             try {
-                // 체크된 경우 로컬 스토리지에 유지(browserLocalPersistence), 아니면 브라우저 닫을 때까지(browserSessionPersistence)
                 const persistenceType = rememberMe ? browserLocalPersistence : browserSessionPersistence;
                 await setPersistence(auth, persistenceType);
 
@@ -790,7 +791,7 @@
         }
 
         window.adminGivePoints = async function() {
-            if(!currentUser || currentUser.email !== ADMIN_EMAIL) return alert("관리자만 가능합니다.");
+            if(!isAdmin(currentUser)) return alert("관리자만 가능합니다.");
             const targetEmail = document.getElementById('adminTargetUserEmail').value.trim();
             const amount = parseInt(document.getElementById('adminPointAmount').value);
             if(!targetEmail || isNaN(amount)) return alert("정보를 정확히 입력하세요.");
@@ -847,7 +848,7 @@
         }
 
         window.addNotice = async function() {
-            if(!currentUser || currentUser.email !== ADMIN_EMAIL) return alert("관리자만 가능합니다.");
+            if(!isAdmin(currentUser)) return alert("관리자만 가능합니다.");
             const title = document.getElementById('adminNoticeTitle').value.trim();
             const content = document.getElementById('adminNoticeContent').value.trim();
             if(!title || !content) return alert("제목과 내용을 입력해주세요.");
@@ -860,6 +861,7 @@
         }
 
         window.deleteNotice = async function(noticeId) {
+            if(!isAdmin(currentUser)) return alert("관리자만 가능합니다.");
             if(confirm("공지사항을 삭제하시겠습니까?")) {
                 await remove(ref(db, `notices/${noticeId}`));
                 alert("삭제되었습니다.");
@@ -879,7 +881,7 @@
         });
 
         function createPostHTML(p) {
-            const isAuthorOrAdmin = currentUser && (currentUser.uid === p.uid || currentUser.email === ADMIN_EMAIL);
+            const isAuthorOrAdmin = currentUser && (currentUser.uid === p.uid || isAdmin(currentUser));
             const actionBtns = isAuthorOrAdmin ? `
                 <button class="edit-btn" onclick="openEditModal('post', '${p.id}')">수정</button>
                 <button class="delete-btn" onclick="deletePost('${p.id}')">삭제</button>
@@ -966,6 +968,10 @@
         }
 
         window.deletePost = async function(postId) {
+            const post = posts.find(p => p.id === postId);
+            if (!currentUser || (!isAdmin(currentUser) && currentUser.uid !== post?.uid)) {
+                return alert("삭제 권한이 없습니다.");
+            }
             if(confirm("게시물을 삭제하시겠습니까?")) {
                 await remove(ref(db, `posts/${postId}`));
                 alert("삭제 완료되었습니다.");
@@ -988,7 +994,7 @@
             document.getElementById('commentSectionContainer').style.display = 'none';
             
             const actionBtns = document.getElementById('detailActionBtns');
-            if(currentUser && currentUser.email === ADMIN_EMAIL) {
+            if(isAdmin(currentUser)) {
                 actionBtns.innerHTML = `
                     <button class="edit-btn" onclick="openEditModal('notice', '${noticeId}')">수정</button>
                     <button class="delete-btn" onclick="deleteNotice('${noticeId}')">삭제</button>
@@ -1024,7 +1030,7 @@
         }
 
         function updatePostDetailUI(post) {
-            const isAuthorOrAdmin = currentUser && (currentUser.uid === post.uid || currentUser.email === ADMIN_EMAIL);
+            const isAuthorOrAdmin = currentUser && (currentUser.uid === post.uid || isAdmin(currentUser));
             const actionBtns = document.getElementById('detailActionBtns');
             actionBtns.innerHTML = isAuthorOrAdmin ? `
                 <button class="edit-btn" onclick="openEditModal('post', '${post.id}')">수정</button>
@@ -1126,6 +1132,7 @@
                 const topic = document.getElementById('editTopicInput').value.trim();
                 await update(ref(db, `posts/${editingTarget.id}`), { topic, title, content });
             } else if(editingTarget.type === 'notice') {
+                if(!isAdmin(currentUser)) return alert("관리자만 수정할 수 있습니다.");
                 await update(ref(db, `notices/${editingTarget.id}`), { title, content });
             }
             closeModal('editModal');
@@ -1244,7 +1251,7 @@
         }
 
         window.addEvent = async function() {
-            if(!currentUser || currentUser.email !== ADMIN_EMAIL) return alert("관리자만 가능합니다.");
+            if(!isAdmin(currentUser)) return alert("관리자만 가능합니다.");
             const title = document.getElementById('adminEventTitle').value.trim();
             const desc = document.getElementById('adminEventDesc').value.trim();
             if(!title) return alert("행사명을 입력해주세요.");
@@ -1255,6 +1262,7 @@
         }
 
         window.deleteEvent = async function(eventId) {
+            if(!isAdmin(currentUser)) return alert("관리자만 가능합니다.");
             if(confirm("행사를 삭제하시겠습니까?")) {
                 await remove(ref(db, `events/${eventId}`));
                 alert("삭제되었습니다.");
@@ -1262,7 +1270,7 @@
         }
 
         window.addSession = async function() {
-            if(!currentUser || currentUser.email !== ADMIN_EMAIL) return alert("관리자만 가능합니다.");
+            if(!isAdmin(currentUser)) return alert("관리자만 가능합니다.");
             const eventId = document.getElementById('adminEventSelect').value;
             const time = document.getElementById('adminSessionTime').value.trim();
             const capacity = parseInt(document.getElementById('adminSessionMax').value);
