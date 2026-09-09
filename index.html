@@ -10,13 +10,13 @@
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
         header { background-color: var(--primary-color); color: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .header-container { max-width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
+        .header-container { max-width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; flex-wrap: wrap; gap: 10px; }
         .logo { display: inline-flex; align-items: center; cursor: pointer; text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem; }
         .logo img { height: 32px; object-fit: contain; }
-        .nav-menu { display: flex; gap: 1.2rem; }
+        .nav-menu { display: flex; gap: 1.2rem; flex-wrap: wrap; }
         .nav-menu a { color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: color 0.2s; }
         .nav-menu a:hover { color: var(--secondary-color); }
-        .auth-area { display: flex; align-items: center; gap: 8px; }
+        .auth-area { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .auth-area button { background-color: transparent; border: 1px solid white; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .auth-area button:hover { background-color: white; color: var(--primary-color); }
         .admin-btn { background-color: #ffc107 !important; color: #000 !important; border: none !important; }
@@ -25,7 +25,7 @@
         .screen { display: none; flex: 1; }
         .screen.active { display: block; }
 
-        .full-container { width: 100%; margin: 1.5rem auto; display: grid; grid-template-columns: 1fr; gap: 1.5rem; padding: 0 2rem; }
+        .full-container { width: 100%; max-width: 1200px; margin: 1.5rem auto; display: grid; grid-template-columns: 1fr; gap: 1.5rem; padding: 0 1rem; }
         .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem; width: 100%; }
         .section-title { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1.0rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; }
 
@@ -37,12 +37,12 @@
         .delete-btn { background-color: transparent; color: var(--danger-color); border: 1px solid var(--danger-color); padding: 0.2rem 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-left: 5px; }
         .edit-btn { background-color: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); padding: 0.2rem 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-left: 5px; }
         
-        .feed-item { padding: 0.8rem 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .feed-item-left { display: flex; gap: 10px; align-items: center; overflow: hidden; }
+        .feed-item { padding: 0.8rem 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px; }
+        .feed-item-left { display: flex; gap: 10px; align-items: center; overflow: hidden; flex: 1; }
         .feed-topic { background-color: var(--secondary-color); color: var(--primary-color); font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 3px; font-weight: bold; white-space: nowrap; }
         .feed-title { font-weight: bold; cursor: pointer; color: #333; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
         .feed-title:hover { text-decoration: underline; color: var(--primary-color); }
-        .feed-meta { font-size: 0.85rem; color: #777; display: flex; align-items: center; white-space: nowrap; }
+        .feed-meta { font-size: 0.85rem; color: #777; display: flex; align-items: center; white-space: nowrap; gap: 5px; }
 
         .notice-item { padding: 12px 0; border-bottom: 1px dashed #ddd; display: flex; justify-content: space-between; align-items: center; }
         .notice-title-link { cursor: pointer; font-weight: bold; color: #333; font-size: 1.05rem; }
@@ -54,23 +54,23 @@
         .detail-content { min-height: 150px; white-space: pre-wrap; margin-bottom: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 1.5rem;}
         .detail-image { max-width: 100%; border-radius: 6px; margin-top: 15px; margin-bottom: 1.5rem; border: 1px solid var(--border-color); }
 
-        .reaction-bar { display: flex; gap: 15px; margin-bottom: 2rem; align-items: center; }
+        .reaction-bar { display: flex; gap: 15px; margin-bottom: 2rem; align-items: center; flex-wrap: wrap; }
         .reaction-btn { background: #f8f9fa; border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; transition: 0.2s; }
         .reaction-btn:hover { background: #f1f3f5; }
         .reaction-btn.liked { color: var(--like-color); border-color: var(--like-color); background: #fce4ec; }
         .reaction-btn.disliked { color: var(--danger-color); border-color: var(--danger-color); background: #ffebee; }
 
         .event-card { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px; width: 100%; }
-        .session-row { display: flex; justify-content: space-between; background: #f9f9f9; padding: 10px; margin-top: 5px; align-items: center; border-radius: 4px; border: 1px solid #eee;}
+        .session-row { display: flex; justify-content: space-between; background: #f9f9f9; padding: 10px; margin-top: 5px; align-items: center; border-radius: 4px; border: 1px solid #eee; flex-wrap: wrap; gap: 10px;}
 
-        .tools-nav { display: flex; gap: 10px; margin-bottom: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        .tools-nav { display: flex; gap: 10px; margin-bottom: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 10px; flex-wrap: wrap; }
         .tool-tab-btn { background: #e2e5f3; color: var(--primary-color); border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .tool-tab-btn.active { background: var(--primary-color); color: white; }
         .tool-content { display: none; }
         .tool-content.active { display: block; }
-        .result-box { background: #f4f5f9; border: 1px dashed var(--primary-color); padding: 15px; border-radius: 6px; margin-top: 15px; min-height: 60px; font-weight: bold; }
+        .result-box { background: #f4f5f9; border: 1px dashed var(--primary-color); padding: 15px; border-radius: 6px; margin-top: 15px; min-height: 60px; font-weight: bold; word-break: break-all; }
 
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; z-index: 1000; padding: 15px; }
         .modal-overlay.active { display: flex; }
         .modal-window { background: white; width: 100%; max-width: 400px; padding: 2rem; border-radius: 8px; position: relative; }
         .modal-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
@@ -90,7 +90,7 @@
     <header>
         <div class="header-container">
             <a onclick="showScreen('mainScreen')" class="logo">
-                <img src="logo2.png" alt="SUNGSAN_Inside 로고">
+                <span>SUNGSAN_Inside</span>
             </a>
             <nav class="nav-menu">
                 <a onclick="showScreen('mainScreen')">메인 홈</a>
@@ -165,7 +165,7 @@
     <main id="roomDetailScreen" class="screen">
         <div class="full-container">
             <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; flex-wrap: wrap; gap: 10px;">
                     <h2 id="currentRoomTitle" style="color: var(--primary-color); font-size: 1.3rem;">채팅방 이름</h2>
                     <button class="back-btn" style="margin: 0;" onclick="leaveChatRoom()">나가기</button>
                 </div>
@@ -184,8 +184,8 @@
         <div class="full-container">
             <div class="card">
                 <div class="section-title">게시물 검색 및 알림 소통 마당 (전체보기)</div>
-                <div style="display: flex; gap: 10px; margin-bottom: 20px; background: #f0f2f5; padding: 15px; border-radius: 6px; align-items: center;">
-                    <input type="text" id="searchInput" class="input-box" style="margin:0; flex:1;" placeholder="제목, 내용, 작성자 이름으로 검색하세요">
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; background: #f0f2f5; padding: 15px; border-radius: 6px; align-items: center; flex-wrap: wrap;">
+                    <input type="text" id="searchInput" class="input-box" style="margin:0; flex:1; min-width: 200px;" placeholder="제목, 내용, 작성자 이름으로 검색하세요">
                     <button class="submit-btn" onclick="executeSearch()">검색</button>
                     <button class="submit-btn" style="background:#888;" onclick="resetSearch()">초기화</button>
                 </div>
@@ -253,11 +253,11 @@
             <div class="card">
                 <div class="section-title">👤 마이페이지 및 포인트 상점</div>
                 
-                <div style="background: #f9f9f9; padding: 20px; border-radius: 6px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px;">
+                <div style="background: #f9f9f9; padding: 20px; border-radius: 6px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
                     <div>
                         <img id="profileBigAvatar" src="" class="profile-big-avatar" alt="프로필 이미지">
                     </div>
-                    <div style="flex: 1;">
+                    <div style="flex: 1; min-width: 200px;">
                         <p style="font-size: 1.1rem; margin-bottom: 6px;">현재 닉네임: <strong id="profileNickname" style="color:var(--primary-color);"></strong></p>
                         <p style="font-size: 0.95rem; margin-bottom: 6px;">보유 포인트: <strong id="profilePoints" style="color:var(--point-color);">0 P</strong></p>
                         <p style="font-size: 0.95rem; margin-bottom: 10px;">보유 닉네임 변경권: <strong id="profileTickets" style="color:var(--danger-color);">0 장</strong></p>
@@ -275,12 +275,12 @@
                         <p style="font-size: 1rem; margin-bottom: 10px;">오늘의 출석 상태: <strong id="todayAttendanceStatus" style="color: crimson;">확인 중...</strong></p>
                         <button id="checkAttendanceBtn" class="submit-btn" style="padding: 0.6rem 1.5rem; font-size: 1rem;" onclick="doAttendance()">출석 체크하기 (+20P)</button>
                     </div>
-                    <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                        <div style="flex: 1; background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center;">
+                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                        <div style="flex: 1; background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; min-width: 120px;">
                             <div style="font-size: 0.85rem; color: #555;">누적 출석 횟수</div>
                             <div id="totalAttendanceCount" style="font-size: 1.2rem; font-weight: bold; color: #1565c0;">0 회</div>
                         </div>
-                        <div style="flex: 1; background: #e8f5e9; padding: 12px; border-radius: 6px; text-align: center;">
+                        <div style="flex: 1; background: #e8f5e9; padding: 12px; border-radius: 6px; text-align: center; min-width: 120px;">
                             <div style="font-size: 0.85rem; color: #555;">연속 출석</div>
                             <div id="streakAttendanceCount" style="font-size: 1.2rem; font-weight: bold; color: #2e7d32;">0 일</div>
                         </div>
@@ -385,9 +385,9 @@
                 <div style="border-bottom: 2px solid #ddd; padding-bottom: 1rem; margin-bottom: 1.5rem;">
                     <span class="feed-topic" id="detailTopic">주제</span>
                     <h1 class="detail-title" id="detailTitle">제목</h1>
-                    <div class="feed-meta">
+                    <div class="feed-meta" style="flex-wrap: wrap; justify-content: space-between;">
                         <div><span id="detailAuthor">작성자</span> &nbsp;|&nbsp; <span id="detailDate">날짜</span></div>
-                        <div id="detailActionBtns" style="margin-left:auto;"></div>
+                        <div id="detailActionBtns"></div>
                     </div>
                 </div>
                 
@@ -403,8 +403,8 @@
                 <div id="commentSectionContainer">
                     <h3 style="margin-bottom: 1rem;">댓글 <span id="commentCount" style="color:var(--primary-color);">0</span></h3>
                     <ul id="commentList" style="list-style:none; margin-bottom:1.5rem;"></ul>
-                    <form style="display:flex; gap:0.5rem;" onsubmit="handleAddComment(event)">
-                        <input type="text" id="commentInput" class="input-box" style="margin:0;" placeholder="댓글을 남겨보세요 (+3P)" required>
+                    <form style="display:flex; gap:0.5rem; flex-wrap: wrap;" onsubmit="handleAddComment(event)">
+                        <input type="text" id="commentInput" class="input-box" style="margin:0; flex:1; min-width: 200px;" placeholder="댓글을 남겨보세요 (+3P)" required>
                         <button type="submit" class="submit-btn">등록</button>
                     </form>
                 </div>
@@ -500,7 +500,7 @@
                 : `<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='%23ccc'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" class="user-avatar" alt="기본 프로필">`;
             
             const nameTagHTML = tag 
-                ? `<strong>${name}</strong> <span style="background-color: ${color}a6; padding: 2px 5px; border-radius: 4px; font-size: 0.8rem; color: #000; margin-left: 3px; font-weight: bold;">${tag}</span>` 
+                ? `<strong>${name}</strong> <span style="background-color: ${color || '#ffeb3b'}a6; padding: 2px 5px; border-radius: 4px; font-size: 0.8rem; color: #000; margin-left: 3px; font-weight: bold;">${tag}</span>` 
                 : `<strong>${name}</strong>`;
 
             return `<span style="display:inline-flex; align-items:center; gap:6px;">${avatarHTML} ${nameTagHTML}</span>`;
@@ -513,7 +513,8 @@
             }
             if(id !== 'detailScreen') currentScreenBeforeDetail = id;
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); 
-            document.getElementById(id).classList.add('active'); 
+            const target = document.getElementById(id);
+            if(target) target.classList.add('active'); 
             if(id === 'searchScreen') resetSearch();
             if(id === 'noticeScreen') renderNoticeScreen();
             if(id === 'profileScreen') { updateProfileUI(); loadMyGroupsForInvite(); loadAttendanceData(); }
@@ -531,8 +532,9 @@
         window.switchToolTab = (toolName) => {
             document.querySelectorAll('.tool-tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tool-content').forEach(content => content.classList.remove('active'));
-            event.target.classList.add('active');
-            document.getElementById(`tool-${toolName}`).classList.add('active');
+            if(event && event.target) event.target.classList.add('active');
+            const targetTool = document.getElementById(`tool-${toolName}`);
+            if(targetTool) targetTool.classList.add('active');
         }
 
         async function loadAllUsersForAdmin() {
@@ -552,7 +554,9 @@
         }
 
         window.filterAdminUserList = function() {
-            const keyword = document.getElementById('adminUserSearchInput').value.trim().toLowerCase();
+            const inputEl = document.getElementById('adminUserSearchInput');
+            if(!inputEl) return;
+            const keyword = inputEl.value.trim().toLowerCase();
             if(!keyword) {
                 renderAdminUserList(allUsersCache);
                 return;
@@ -578,7 +582,7 @@
                 else if(u.isSuspended) statusText = `<span style="color: orange; font-weight: bold;">일시정지 (${u.suspendedReason || '사유 없음'})</span>`;
 
                 return `
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; background: #fff;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; background: #fff; flex-wrap: wrap; gap: 8px;">
                         <div style="font-size: 0.9rem;">
                             ${renderUserCard(u.avatar, u.nickname || '이름 없음', u.groupTag, u.groupColor)}
                             <div style="color: #666; font-size: 0.8rem; margin-top: 2px;">${u.email} | 상태: ${statusText}</div>
@@ -625,11 +629,16 @@
 
         window.loadAttendanceData = async function() {
             if(!currentUser) {
-                document.getElementById('todayAttendanceStatus').textContent = "로그인이 필요합니다.";
-                document.getElementById('checkAttendanceBtn').disabled = true;
-                document.getElementById('totalAttendanceCount').textContent = "0 회";
-                document.getElementById('streakAttendanceCount').textContent = "0 일";
-                document.getElementById('attendanceHistoryList').innerHTML = "로그인 후 이용해주세요.";
+                const statusEl = document.getElementById('todayAttendanceStatus');
+                const btnEl = document.getElementById('checkAttendanceBtn');
+                if(statusEl) statusEl.textContent = "로그인이 필요합니다.";
+                if(btnEl) btnEl.disabled = true;
+                const totalCountEl = document.getElementById('totalAttendanceCount');
+                const streakCountEl = document.getElementById('streakAttendanceCount');
+                const historyListEl = document.getElementById('attendanceHistoryList');
+                if(totalCountEl) totalCountEl.textContent = "0 회";
+                if(streakCountEl) streakCountEl.textContent = "0 일";
+                if(historyListEl) historyListEl.innerHTML = "로그인 후 이용해주세요.";
                 return;
             }
 
@@ -646,18 +655,20 @@
             const statusEl = document.getElementById('todayAttendanceStatus');
             const btnEl = document.getElementById('checkAttendanceBtn');
 
-            if(todayChecked) {
-                statusEl.textContent = "오늘 이미 출석체크를 완료했습니다! ✅";
-                statusEl.style.color = "green";
-                btnEl.disabled = true;
-                btnEl.style.backgroundColor = "#ccc";
-                btnEl.textContent = "출석 완료";
-            } else {
-                statusEl.textContent = "오늘 아직 출석체크를 하지 않았습니다.";
-                statusEl.style.color = "crimson";
-                btnEl.disabled = false;
-                btnEl.style.backgroundColor = "var(--primary-color)";
-                btnEl.textContent = "출석 체크하기 (+20P)";
+            if(statusEl && btnEl) {
+                if(todayChecked) {
+                    statusEl.textContent = "오늘 이미 출석체크를 완료했습니다! ✅";
+                    statusEl.style.color = "green";
+                    btnEl.disabled = true;
+                    btnEl.style.backgroundColor = "#ccc";
+                    btnEl.textContent = "출석 완료";
+                } else {
+                    statusEl.textContent = "오늘 아직 출석체크를 하지 않았습니다.";
+                    statusEl.style.color = "crimson";
+                    btnEl.disabled = false;
+                    btnEl.style.backgroundColor = "var(--primary-color)";
+                    btnEl.textContent = "출석 체크하기 (+20P)";
+                }
             }
 
             const dates = Object.keys(history).sort();
@@ -678,19 +689,23 @@
                 checkStr = `${checkDate.getFullYear()}-${String(checkDate.getMonth() + 1).padStart(2, '0')}-${String(checkDate.getDate()).padStart(2, '0')}`;
             }
 
-            document.getElementById('totalAttendanceCount').textContent = `${totalCount} 회`;
-            document.getElementById('streakAttendanceCount').textContent = `${streak} 일`;
+            const totalEl = document.getElementById('totalAttendanceCount');
+            const streakEl = document.getElementById('streakAttendanceCount');
+            if(totalEl) totalEl.textContent = `${totalCount} 회`;
+            if(streakEl) streakEl.textContent = `${streak} 일`;
 
             const historyContainer = document.getElementById('attendanceHistoryList');
-            if(dates.length === 0) {
-                historyContainer.innerHTML = '<p style="color:#999; text-align:center;">출석 기록이 없습니다.</p>';
-            } else {
-                historyContainer.innerHTML = dates.reverse().slice(0, 10).map(d => `
-                    <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #fff; margin-bottom: 4px; border-radius: 4px; border: 1px solid #eee;">
-                        <span>📅 ${d}</span>
-                        <span style="color: green; font-weight: bold;">출석 완료 (+20P)</span>
-                    </div>
-                `).join('');
+            if(historyContainer) {
+                if(dates.length === 0) {
+                    historyContainer.innerHTML = '<p style="color:#999; text-align:center;">출석 기록이 없습니다.</p>';
+                } else {
+                    historyContainer.innerHTML = dates.reverse().slice(0, 10).map(d => `
+                        <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #fff; margin-bottom: 4px; border-radius: 4px; border: 1px solid #eee;">
+                            <span>📅 ${d}</span>
+                            <span style="color: green; font-weight: bold;">출석 완료 (+20P)</span>
+                        </div>
+                    `).join('');
+                }
             }
         }
 
@@ -709,10 +724,13 @@
 
         const checkbox = document.getElementById('is-private-checkbox');
         const passwordContainer = document.getElementById('password-container');
-        if(checkbox) {
+        if(checkbox && passwordContainer) {
             checkbox.addEventListener('change', (e) => {
                 passwordContainer.style.display = e.target.checked ? 'block' : 'none';
-                if(!e.target.checked) document.getElementById('room-password').value = '';
+                if(!e.target.checked) {
+                    const pwInput = document.getElementById('room-password');
+                    if(pwInput) pwInput.value = '';
+                }
             });
         }
 
@@ -720,9 +738,11 @@
         if(createRoomBtn) {
             createRoomBtn.addEventListener('click', async () => {
                 if (!currentUser) return alert("로그인이 필요한 서비스입니다."), openModal('authModal');
-                const title = document.getElementById('room-title').value.trim();
-                const isPrivate = checkbox.checked;
-                const password = document.getElementById('room-password').value.trim();
+                const titleEl = document.getElementById('room-title');
+                const title = titleEl ? titleEl.value.trim() : '';
+                const isPrivate = checkbox ? checkbox.checked : false;
+                const pwEl = document.getElementById('room-password');
+                const password = pwEl ? pwEl.value.trim() : '';
 
                 if (!title) return alert("채팅방 제목을 입력해주세요.");
                 if (isPrivate && !password) return alert("비밀 채팅방 비밀번호를 입력해주세요.");
@@ -742,11 +762,11 @@
                     await set(newRoomRef, { title, isPrivate, password: isPrivate ? password : null, creatorId: currentUser.uid, createdAt: Date.now() });
 
                     alert(isPrivate ? "비밀 채팅방이 생성되었습니다! (100P 차감)" : "공개 채팅방이 생성되었습니다.");
-                    document.getElementById('room-title').value = '';
-                    if(isPrivate) {
+                    if(titleEl) titleEl.value = '';
+                    if(isPrivate && checkbox && passwordContainer && pwEl) {
                         checkbox.checked = false;
                         passwordContainer.style.display = 'none';
-                        document.getElementById('room-password').value = '';
+                        pwEl.value = '';
                     }
                 } catch (error) { alert("채팅방 생성 실패: " + error.message); }
             });
@@ -766,7 +786,7 @@
             container.innerHTML = rooms.map(room => {
                 const canDelete = currentUser && isAdmin(currentUser.email);
                 return `
-                    <div style="display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #eee;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #eee; flex-wrap: wrap; gap: 8px;">
                         <div>
                             <strong>${room.title}</strong>
                             ${room.isPrivate ? '<span style="color: crimson; font-size: 0.8rem; margin-left: 5px;">🔒 비밀방</span>' : '<span style="color: green; font-size: 0.8rem; margin-left: 5px;">🔓 공개방</span>'}
@@ -801,7 +821,8 @@
             }
             
             currentActiveRoomId = roomId;
-            document.getElementById('currentRoomTitle').textContent = roomTitle;
+            const titleEl = document.getElementById('currentRoomTitle');
+            if(titleEl) titleEl.textContent = roomTitle;
             showScreen('roomDetailScreen');
             if(unsubscribeChat) unsubscribeChat();
 
@@ -826,7 +847,7 @@
             container.innerHTML = messages.map(msg => {
                 const isMyMessage = currentUser && msg.uid === currentUser.uid;
                 const avatarHTML = msg.avatar ? `<img src="${msg.avatar}" class="chat-avatar" alt="프로필">` : `<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24' fill='%23ccc'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" class="chat-avatar" alt="기본 프로필">`;
-                const tagHTML = msg.groupTag ? `<span style="background-color: ${msg.groupColor}a6; padding: 2px 5px; border-radius: 4px; font-size: 0.75rem; color: #000; margin-left: 3px; font-weight: bold;">${msg.groupTag}</span>` : '';
+                const tagHTML = msg.groupTag ? `<span style="background-color: ${msg.groupColor || '#ffeb3b'}a6; padding: 2px 5px; border-radius: 4px; font-size: 0.75rem; color: #000; margin-left: 3px; font-weight: bold;">${msg.groupTag}</span>` : '';
 
                 return `
                     <div style="display: flex; flex-direction: column; align-items: ${isMyMessage ? 'flex-end' : 'flex-start'};">
@@ -850,6 +871,7 @@
             if (currentUserProfile.isSuspended) return alert(`일시 정지된 회원입니다. (사유: ${currentUserProfile.suspendedReason || '없음'})`);
 
             const input = document.getElementById('chatMessageInput');
+            if(!input) return;
             const text = input.value.trim();
             if(!text) return;
             const now = new Date();
@@ -891,7 +913,8 @@
                             return;
                         }
                         updateAuthUI();
-                        if(document.getElementById('profileScreen').classList.contains('active')) {
+                        const profileScreenEl = document.getElementById('profileScreen');
+                        if(profileScreenEl && profileScreenEl.classList.contains('active')) {
                             updateProfileUI();
                             loadAttendanceData();
                         }
@@ -903,12 +926,14 @@
                 const data = snapshot.val() || {};
                 renderChatRooms(Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse());
             });
-            if(document.getElementById('profileScreen').classList.contains('active')) loadAttendanceData();
+            const profileScreenEl = document.getElementById('profileScreen');
+            if(profileScreenEl && profileScreenEl.classList.contains('active')) loadAttendanceData();
         });
 
         function updateAuthUI() {
             const authArea = document.getElementById('authArea');
             const profileMenuLink = document.getElementById('profileMenuLink');
+            if(!authArea || !profileMenuLink) return;
             if (currentUser) {
                 profileMenuLink.style.display = 'block';
                 let html = `
@@ -928,15 +953,20 @@
 
         function updateProfileUI() {
             if(!currentUser) return;
-            document.getElementById('profileNickname').textContent = currentUserProfile.nickname || '';
-            document.getElementById('profilePoints').textContent = `${currentUserProfile.points || 0} P`;
-            document.getElementById('profileTickets').textContent = `${currentUserProfile.tickets || 0} 장`;
+            const nickEl = document.getElementById('profileNickname');
+            const pointsEl = document.getElementById('profilePoints');
+            const ticketsEl = document.getElementById('profileTickets');
+            if(nickEl) nickEl.textContent = currentUserProfile.nickname || '';
+            if(pointsEl) pointsEl.textContent = `${currentUserProfile.points || 0} P`;
+            if(ticketsEl) ticketsEl.textContent = `${currentUserProfile.tickets || 0} 장`;
             
             const bigAvatar = document.getElementById('profileBigAvatar');
-            if(currentUserProfile.avatar) {
-                bigAvatar.src = currentUserProfile.avatar;
-            } else {
-                bigAvatar.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 24 24' fill='%23ccc'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>";
+            if(bigAvatar) {
+                if(currentUserProfile.avatar) {
+                    bigAvatar.src = currentUserProfile.avatar;
+                } else {
+                    bigAvatar.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 24 24' fill='%23ccc'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>";
+                }
             }
         }
 
@@ -1051,8 +1081,9 @@
         window.inviteUserToGroup = async function() {
             if(!currentUser) return alert('로그인이 필요합니다.');
             const select = document.getElementById('inviteGroupSelect');
-            const targetEmail = document.getElementById('inviteUserEmail').value.trim();
-            if(!select.value) return alert("초대할 그룹을 선택해주세요.");
+            const targetEmailInput = document.getElementById('inviteUserEmail');
+            if(!select || !select.value) return alert("초대할 그룹을 선택해주세요.");
+            const targetEmail = targetEmailInput ? targetEmailInput.value.trim() : '';
             if(!targetEmail) return alert("초대할 유저의 이메일을 입력해주세요.");
 
             const selectedOption = select.options[select.selectedIndex];
@@ -1073,7 +1104,7 @@
                 groupColor: color
             });
 
-            document.getElementById('inviteUserEmail').value = '';
+            if(targetEmailInput) targetEmailInput.value = '';
             alert(`[${targetEmail}] 유저에게 그룹 태그(${tag})가 성공적으로 적용되었습니다!`);
         }
 
@@ -1089,20 +1120,23 @@
         window.changeNickname = async function() {
             if(!currentUser) return;
             if((currentUserProfile.tickets || 0) < 1) return alert("닉네임 변경권이 부족합니다!");
-            const newNick = document.getElementById('newNicknameInput').value.trim();
+            const nickInput = document.getElementById('newNicknameInput');
+            const newNick = nickInput ? nickInput.value.trim() : '';
             if(!newNick) return alert("변경할 닉네임을 입력해주세요.");
             currentUserProfile.tickets -= 1;
             currentUserProfile.nickname = newNick;
             await update(ref(db, `users/${currentUser.uid}`), { nickname: newNick, tickets: currentUserProfile.tickets });
-            document.getElementById('newNicknameInput').value = '';
+            if(nickInput) nickInput.value = '';
             alert(`닉네임이 [${newNick}] (으)로 변경되었습니다!`);
             updateProfileUI(); updateAuthUI(); renderMainFeed();
         }
 
         window.adminGivePoints = async function() {
             if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
-            const targetEmail = document.getElementById('adminTargetUserEmail').value.trim();
-            const amount = parseInt(document.getElementById('adminPointAmount').value);
+            const targetEmailInput = document.getElementById('adminTargetUserEmail');
+            const amountInput = document.getElementById('adminPointAmount');
+            const targetEmail = targetEmailInput ? targetEmailInput.value.trim() : '';
+            const amount = amountInput ? parseInt(amountInput.value) : NaN;
             if(!targetEmail || isNaN(amount)) return alert("정보를 정확히 입력하세요.");
             const usersSnap = await get(ref(db, "users"));
             if(!usersSnap.exists()) return alert("유저가 없습니다.");
@@ -1113,7 +1147,8 @@
             if(!targetUid) return alert("해당 유저를 찾을 수 없습니다.");
             let newPoints = (targetData.points || 0) + amount;
             await update(ref(db, `users/${targetUid}`), { points: newPoints });
-            document.getElementById('adminTargetUserEmail').value = ''; document.getElementById('adminPointAmount').value = '';
+            if(targetEmailInput) targetEmailInput.value = ''; 
+            if(amountInput) amountInput.value = '';
             alert(`포인트가 반영되었습니다. (총: ${newPoints}P)`);
         }
 
@@ -1122,7 +1157,8 @@
             notices = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
             renderNotices();
             renderMainNotices();
-            if(document.getElementById('noticeScreen').classList.contains('active')) renderNoticeScreen();
+            const noticeScreenEl = document.getElementById('noticeScreen');
+            if(noticeScreenEl && noticeScreenEl.classList.contains('active')) renderNoticeScreen();
         });
 
         function renderNoticeScreen() {
@@ -1168,7 +1204,7 @@
                     adminContainer.innerHTML = '<span style="color:#999; font-size:0.9rem;">등록된 공지가 없습니다.</span>';
                 } else {
                     adminContainer.innerHTML = notices.map(n => `
-                        <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:8px 10px; border:1px solid #ddd; margin-bottom:5px; border-radius:4px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:8px 10px; border:1px solid #ddd; margin-bottom:5px; border-radius:4px; flex-wrap: wrap; gap: 8px;">
                             <div><strong>${n.title}</strong></div>
                             <div>
                                 <button class="edit-btn" onclick="openEditModal('notice', '${n.id}')">수정</button>
@@ -1182,13 +1218,16 @@
 
         window.addNotice = async function() {
             if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
-            const title = document.getElementById('adminNoticeTitle').value.trim();
-            const content = document.getElementById('adminNoticeContent').value.trim();
+            const titleInput = document.getElementById('adminNoticeTitle');
+            const contentInput = document.getElementById('adminNoticeContent');
+            const title = titleInput ? titleInput.value.trim() : '';
+            const content = contentInput ? contentInput.value.trim() : '';
             if(!title || !content) return alert("제목과 내용을 입력해주세요.");
             const now = new Date();
             const dateStr = `${now.getMonth()+1}/${now.getDate()}`;
             await push(ref(db, "notices"), { title, content, author: '관리자', date: dateStr, createdAt: Date.now() });
-            document.getElementById('adminNoticeTitle').value = ''; document.getElementById('adminNoticeContent').value = '';
+            if(titleInput) titleInput.value = ''; 
+            if(contentInput) contentInput.value = '';
             alert("공지사항이 등록되었습니다.");
         }
 
@@ -1204,7 +1243,8 @@
             const data = snapshot.val() || {};
             posts = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
             renderMainFeed();
-            if(document.getElementById('searchScreen').classList.contains('active')) executeSearch();
+            const searchScreenEl = document.getElementById('searchScreen');
+            if(searchScreenEl && searchScreenEl.classList.contains('active')) executeSearch();
             if(currentViewItem && currentViewItem.type === 'post') {
                 const updated = posts.find(p => p.id === currentViewItem.id);
                 if(updated) updatePostDetailUI(updated);
@@ -1245,12 +1285,18 @@
         }
 
         window.executeSearch = () => {
-            const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+            const searchInput = document.getElementById('searchInput');
+            if(!searchInput) return;
+            const keyword = searchInput.value.trim().toLowerCase();
             if(!keyword) return renderSearchPosts(posts);
             const filtered = posts.filter(p => p.title.toLowerCase().includes(keyword) || p.content.toLowerCase().includes(keyword) || p.author.toLowerCase().includes(keyword));
             renderSearchPosts(filtered);
         }
-        window.resetSearch = () => { document.getElementById('searchInput').value = ''; renderSearchPosts(posts); }
+        window.resetSearch = () => { 
+            const searchInput = document.getElementById('searchInput');
+            if(searchInput) searchInput.value = ''; 
+            renderSearchPosts(posts); 
+        }
 
         window.handlePostSubmit = async function(e, source) {
             e.preventDefault();
@@ -1259,13 +1305,17 @@
             if (currentUserProfile.isSuspended) return alert(`일시 정지된 회원입니다. (사유: ${currentUserProfile.suspendedReason || '없음'})`);
 
             const num = source === 'main' ? '1' : '2';
-            const topic = document.getElementById(`postTopic${num}`).value.trim();
-            const title = document.getElementById(`postTitle${num}`).value.trim();
-            const content = document.getElementById(`postContent${num}`).value.trim();
+            const topicInput = document.getElementById(`postTopic${num}`);
+            const titleInput = document.getElementById(`postTitle${num}`);
+            const contentInput = document.getElementById(`postContent${num}`);
             const imageInput = document.getElementById(`postImage${num}`);
             
+            const topic = topicInput ? topicInput.value.trim() : '';
+            const title = titleInput ? titleInput.value.trim() : '';
+            const content = contentInput ? contentInput.value.trim() : '';
+
             let imageUrl = "";
-            if (imageInput.files && imageInput.files[0]) {
+            if (imageInput && imageInput.files && imageInput.files[0]) {
                 const file = imageInput.files[0];
                 if (file.size > 1024 * 1024 * 2) return alert("이미지 용량이 너무 큽니다. 2MB 이하의 이미지만 업로드 가능합니다.");
                 imageUrl = await toBase64(file);
@@ -1364,10 +1414,11 @@
             const likeBtn = document.getElementById('likeBtn');
             const dislikeBtn = document.getElementById('dislikeBtn');
             
-            likeBtn.classList.remove('liked'); dislikeBtn.classList.remove('disliked');
+            if(likeBtn) likeBtn.classList.remove('liked'); 
+            if(dislikeBtn) dislikeBtn.classList.remove('disliked');
             if (currentUser && post.voters && post.voters[currentUser.uid]) {
-                if (post.voters[currentUser.uid] === 'like') likeBtn.classList.add('liked');
-                else if (post.voters[currentUser.uid] === 'dislike') dislikeBtn.classList.add('disliked');
+                if (post.voters[currentUser.uid] === 'like' && likeBtn) likeBtn.classList.add('liked');
+                else if (post.voters[currentUser.uid] === 'dislike' && dislikeBtn) dislikeBtn.classList.add('disliked');
             }
 
             const commentArray = post.comments ? Object.keys(post.comments).map(k => ({id: k, ...post.comments[k]})) : [];
@@ -1377,17 +1428,17 @@
                 const commentAvatar = c.avatar 
                     ? `<img src="${c.avatar}" class="comment-avatar" alt="프로필">` 
                     : `<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ccc'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" class="comment-avatar" alt="기본 프로필">`;
-                const cTagHTML = c.groupTag ? `<span style="background-color: ${c.groupColor}a6; padding: 2px 5px; border-radius: 4px; font-size: 0.75rem; color: #000; margin-left: 3px; font-weight: bold;">${c.groupTag}</span>` : '';
+                const cTagHTML = c.groupTag ? `<span style="background-color: ${c.groupColor || '#ffeb3b'}a6; padding: 2px 5px; border-radius: 4px; font-size: 0.75rem; color: #000; margin-left: 3px; font-weight: bold;">${c.groupTag}</span>` : '';
 
                 return `
                 <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
-                    <div style="font-size:0.85rem; margin-bottom:4px; display:flex; justify-content:space-between; align-items:center;">
+                    <div style="font-size:0.85rem; margin-bottom:4px; display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 5px;">
                         <span style="display:inline-flex; align-items:center; gap:4px;">
                             ${commentAvatar}<strong>${c.author}</strong>${cTagHTML} <span style="color:#999; margin-left:10px;">${c.date}</span>
                         </span>
                         ${canDel ? `<button class="delete-btn" onclick="deleteComment('${post.id}', '${c.id}')">삭제</button>` : ''}
                     </div>
-                    <div style="font-size:0.95rem; padding-left: 28px;">${c.text}</div>
+                    <div style="font-size:0.95rem; padding-left: 28px; word-break: break-all;">${c.text}</div>
                 </li>
             `}).join('');
         }
@@ -1398,25 +1449,33 @@
             else item = notices.find(n => n.id === id);
             if(!item) return;
 
-            document.getElementById('editTopicInput').style.display = type === 'post' ? 'block' : 'none';
-            if(type === 'post') document.getElementById('editTopicInput').value = item.topic || '';
+            const editTopicInput = document.getElementById('editTopicInput');
+            if(editTopicInput) {
+                editTopicInput.style.display = type === 'post' ? 'block' : 'none';
+                if(type === 'post') editTopicInput.value = item.topic || '';
+            }
             document.getElementById('editTitleInput').value = item.title;
             document.getElementById('editContentInput').value = item.content;
             
-            document.getElementById('editModal').setAttribute('data-target-type', type);
-            document.getElementById('editModal').setAttribute('data-target-id', id);
+            const editModal = document.getElementById('editModal');
+            editModal.setAttribute('data-target-type', type);
+            editModal.setAttribute('data-target-id', id);
             openModal('editModal');
         }
 
         window.submitEdit = async function() {
-            const type = document.getElementById('editModal').getAttribute('data-target-type');
-            const id = document.getElementById('editModal').getAttribute('data-target-id');
+            const editModal = document.getElementById('editModal');
+            const type = editModal.getAttribute('data-target-type');
+            const id = editModal.getAttribute('data-target-id');
             const title = document.getElementById('editTitleInput').value.trim();
             const content = document.getElementById('editContentInput').value.trim();
             if(!title || !content) return alert("제목과 내용을 입력하세요.");
 
             const updates = { title, content };
-            if(type === 'post') updates.topic = document.getElementById('editTopicInput').value.trim();
+            if(type === 'post') {
+                const topicInput = document.getElementById('editTopicInput');
+                if(topicInput) updates.topic = topicInput.value.trim();
+            }
 
             await update(ref(db, `${type}s/${id}`), updates);
             alert("수정되었습니다.");
@@ -1465,6 +1524,7 @@
             if (!currentViewItem || currentViewItem.type !== 'post') return;
 
             const input = document.getElementById('commentInput');
+            if(!input) return;
             const now = new Date();
             const dateStr = `${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
             
@@ -1498,7 +1558,8 @@
             if (window.events.length === 0) {
                 container.innerHTML = '<div style="padding:2rem; text-align:center; color:#999;">진행 중인 행사가 없습니다.</div>';
                 if(select) select.innerHTML = '<option value="">행사 없음</option>';
-                if(document.getElementById('adminEventListContainer')) document.getElementById('adminEventListContainer').innerHTML = '<span style="color:#999; font-size:0.9rem;">등록된 행사가 없습니다.</span>';
+                const adminEvList = document.getElementById('adminEventListContainer');
+                if(adminEvList) adminEvList.innerHTML = '<span style="color:#999; font-size:0.9rem;">등록된 행사가 없습니다.</span>';
                 return;
             }
 
@@ -1507,7 +1568,7 @@
             const adminContainer = document.getElementById('adminEventListContainer');
             if(adminContainer) {
                 adminContainer.innerHTML = window.events.map(ev => `
-                    <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:8px 10px; border:1px solid #ddd; margin-bottom:5px; border-radius:4px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:8px 10px; border:1px solid #ddd; margin-bottom:5px; border-radius:4px; flex-wrap: wrap; gap: 8px;">
                         <div><strong>${ev.title}</strong></div>
                         <button class="delete-btn" onclick="deleteEvent('${ev.id}')">삭제</button>
                     </div>
@@ -1552,11 +1613,14 @@
 
         window.addEvent = async function() {
             if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
-            const title = document.getElementById('adminEventTitle').value.trim();
-            const desc = document.getElementById('adminEventDesc').value.trim();
+            const titleInput = document.getElementById('adminEventTitle');
+            const descInput = document.getElementById('adminEventDesc');
+            const title = titleInput ? titleInput.value.trim() : '';
+            const desc = descInput ? descInput.value.trim() : '';
             if(!title || !desc) return alert("행사명과 설명을 입력하세요.");
             await push(ref(db, "events"), { title, desc, createdAt: Date.now() });
-            document.getElementById('adminEventTitle').value = ''; document.getElementById('adminEventDesc').value = '';
+            if(titleInput) titleInput.value = ''; 
+            if(descInput) descInput.value = '';
             alert("행사가 생성되었습니다.");
         }
 
@@ -1569,12 +1633,16 @@
 
         window.addSession = async function() {
             if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
-            const eventId = document.getElementById('adminEventSelect').value;
-            const time = document.getElementById('adminSessionTime').value.trim();
-            const max = parseInt(document.getElementById('adminSessionMax').value);
+            const selectEl = document.getElementById('adminEventSelect');
+            const timeInput = document.getElementById('adminSessionTime');
+            const maxInput = document.getElementById('adminSessionMax');
+            const eventId = selectEl ? selectEl.value : '';
+            const time = timeInput ? timeInput.value.trim() : '';
+            const max = maxInput ? parseInt(maxInput.value) : NaN;
             if(!eventId || !time || isNaN(max)) return alert("모든 정보를 입력하세요.");
             await push(ref(db, `events/${eventId}/sessions`), { time, max });
-            document.getElementById('adminSessionTime').value = ''; document.getElementById('adminSessionMax').value = '';
+            if(timeInput) timeInput.value = ''; 
+            if(maxInput) maxInput.value = '';
             alert("회차가 추가되었습니다.");
         }
 
@@ -1608,6 +1676,93 @@
             await update(sessionRef, { participants });
             await update(evRef, { participants: globalParticipants });
             alert("행사 예약이 완료되었습니다!");
+        }
+
+        window.cancelEventSession = async function(eventId, sessionKey) {
+            if(!currentUser) return;
+            if(!confirm("예약을 취소하시겠습니까?")) return;
+
+            const evRef = ref(db, `events/${eventId}`);
+            const snap = await get(evRef);
+            if(!snap.exists()) return;
+            const evData = snap.val();
+
+            const sessionRef = ref(db, `events/${eventId}/sessions/${sessionKey}`);
+            const sSnap = await get(sessionRef);
+            if(!sSnap.exists()) return;
+            const sData = sSnap.val();
+            
+            const participants = sData.participants || {};
+            delete participants[currentUser.uid];
+
+            const globalParticipants = evData.participants || {};
+            delete globalParticipants[currentUser.uid];
+
+            await update(sessionRef, { participants });
+            await update(evRef, { participants: globalParticipants });
+            alert("예약이 취소되었습니다.");
+        }
+
+        window.runRoulette = function() {
+            const inputEl = document.getElementById('rouletteInput');
+            if(!inputEl) return;
+            const input = inputEl.value;
+            const items = input.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            if(items.length === 0) return alert("항목을 하나 이상 입력해주세요.");
+            const result = items[Math.floor(Math.random() * items.length)];
+            const resBox = document.getElementById('rouletteResult');
+            if(resBox) resBox.textContent = `🎯 룰렛 결과: [ ${result} ] 당첨!`;
+        }
+
+        window.runLadder = function() {
+            const personsInput = document.getElementById('ladderPersons');
+            const resultsInput = document.getElementById('ladderResults');
+            const persons = personsInput ? personsInput.value.split(',').map(s => s.trim()).filter(s => s.length > 0) : [];
+            const results = resultsInput ? resultsInput.value.split(',').map(s => s.trim()).filter(s => s.length > 0) : [];
+            
+            if(persons.length === 0 || results.length === 0) return alert("참가자와 결과를 모두 입력해주세요.");
+            
+            let shuffledResults = [...results];
+            for (let i = shuffledResults.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledResults[i], shuffledResults[j]] = [shuffledResults[j], shuffledResults[i]];
+            }
+
+            let text = "🪜 사다리 타기 결과:\n";
+            for(let i=0; i<persons.length; i++) {
+                const res = shuffledResults[i % shuffledResults.length];
+                text += `• ${persons[i]} ➔ ${res}\n`;
+            }
+            const ladderResBox = document.getElementById('ladderResult');
+            if(ladderResBox) ladderResBox.innerHTML = text.replace(/\n/g, '<br>');
+        }
+
+        window.runTeamMaker = function() {
+            const membersInput = document.getElementById('teamMembers');
+            const countInput = document.getElementById('teamCount');
+            const members = membersInput ? membersInput.value.split(',').map(s => s.trim()).filter(s => s.length > 0) : [];
+            const count = countInput ? parseInt(countInput.value) : NaN;
+
+            if(members.length === 0) return alert("나눌 사람 이름을 입력해주세요.");
+            if(isNaN(count) || count < 1) return alert("올바른 팀 수를 입력해주세요.");
+            
+            let shuffled = [...members];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            let teams = Array.from({ length: count }, () => []);
+            shuffled.forEach((m, idx) => {
+                teams[idx % count].push(m);
+            });
+
+            let text = "👥 랜덤 팀 나누기 결과:<br>";
+            teams.forEach((team, idx) => {
+                text += `[ ${idx + 1}팀 ] : ${team.join(', ') || '인원 없음'}<br>`;
+            });
+            const teamResBox = document.getElementById('teamResult');
+            if(teamResBox) teamResBox.innerHTML = text;
         }
     </script>
 </body>
