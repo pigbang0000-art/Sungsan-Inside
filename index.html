@@ -27,7 +27,7 @@
         .main-container { max-width: 1100px; margin: 2rem auto; display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; padding: 0 1rem; }
         .full-container { max-width: 800px; margin: 2rem auto; display: grid; grid-template-columns: 1fr; gap: 1.5rem; padding: 0 1rem; }
         .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
-        .section-title { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; }
+        .section-title { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1.0rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; }
 
         .input-box { width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 0.5rem; font-size: 0.95rem; }
         textarea.input-box { height: 100px; resize: none; border: 2px solid var(--primary-color); }
@@ -83,7 +83,7 @@
     <header>
         <div class="header-container">
             <a onclick="showScreen('mainScreen')" class="logo">
-                <img src="logo2.png" alt="SUNGSAN_Inside" style="height: 32px; vertical-align: middle;">
+                <img src="logo2.png" alt="SUNGSAN_Inside 로고" style="height: 28px; width: auto; display: block;">
             </a>
             <nav class="nav-menu">
                 <a onclick="showScreen('toolsScreen')">부가 기능</a>
@@ -249,6 +249,28 @@
                     <p style="font-size: 1.1rem; margin-bottom: 10px;">현재 닉네임: <strong id="profileNickname" style="color:var(--primary-color);"></strong></p>
                     <p style="font-size: 1.1rem; margin-bottom: 10px;">보유 포인트: <strong id="profilePoints" style="color:var(--point-color);">0 P</strong></p>
                     <p style="font-size: 1.1rem;">보유 닉네임 변경권: <strong id="profileTickets" style="color:var(--danger-color);">0 장</strong></p>
+                </div>
+
+                <!-- 출석 체크 섹션 (마이페이지 내부로 통합) -->
+                <div style="background: #f4f8fb; border: 1px solid #d0e1f9; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-color);">📅 일일 출석 체크</h3>
+                    <p style="margin-bottom: 15px; color: #555; font-size: 0.95rem;">매일 출석을 체크하고 <strong>포인트(+20P)</strong>를 받아가세요! 연속 출석 시 추가 보너스가 있습니다.</p>
+                    <div style="background: #ffffff; padding: 15px; border-radius: 6px; text-align: center; margin-bottom: 15px; border: 1px solid #e2e5f3;">
+                        <p style="font-size: 1rem; margin-bottom: 10px;">오늘의 출석 상태: <strong id="todayAttendanceStatus" style="color: crimson;">확인 중...</strong></p>
+                        <button id="checkAttendanceBtn" class="submit-btn" style="padding: 0.6rem 1.5rem; font-size: 1rem;" onclick="doAttendance()">출석 체크하기 (+20P)</button>
+                    </div>
+                    <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                        <div style="flex: 1; background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 0.85rem; color: #555;">누적 출석 횟수</div>
+                            <div id="totalAttendanceCount" style="font-size: 1.2rem; font-weight: bold; color: #1565c0;">0 회</div>
+                        </div>
+                        <div style="flex: 1; background: #e8f5e9; padding: 12px; border-radius: 6px; text-align: center;">
+                            <div style="font-size: 0.85rem; color: #555;">연속 출석</div>
+                            <div id="streakAttendanceCount" style="font-size: 1.2rem; font-weight: bold; color: #2e7d32;">0 일</div>
+                        </div>
+                    </div>
+                    <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: var(--primary-color);">📋 최근 출석 기록</h4>
+                    <div id="attendanceHistoryList" style="font-size: 0.85rem; color: #666; max-height: 150px; overflow-y: auto;">출석 기록을 불러오는 중...</div>
                 </div>
 
                 <!-- 그룹 만들기 UI (500P 소모) -->
@@ -434,7 +456,6 @@
         let currentUser = null;
         let currentUserProfile = {};
         
-        // 복수 관리자 지정 (bjh140820@gmail.com, 3379nhy9844@gmail.com)
         const ADMIN_EMAILS = ["bjh140820@gmail.com", "3379nhy9844@gmail.com"];
         function isAdmin(email) {
             return email && ADMIN_EMAILS.includes(email);
@@ -457,7 +478,7 @@
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); 
             document.getElementById(id).classList.add('active'); 
             if(id === 'searchScreen') resetSearch();
-            if(id === 'profileScreen') { updateProfileUI(); loadMyGroupsForInvite(); }
+            if(id === 'profileScreen') { updateProfileUI(); loadMyGroupsForInvite(); loadAttendanceData(); }
         };
 
         window.goBackToMain = () => { showScreen(currentScreenBeforeDetail); }
@@ -473,6 +494,101 @@
             document.querySelectorAll('.tool-content').forEach(content => content.classList.remove('active'));
             event.target.classList.add('active');
             document.getElementById(`tool-${toolName}`).classList.add('active');
+        }
+
+        // 출석 체크 기능 로직
+        function getTodayDateString() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        window.loadAttendanceData = async function() {
+            if(!currentUser) {
+                document.getElementById('todayAttendanceStatus').textContent = "로그인이 필요합니다.";
+                document.getElementById('checkAttendanceBtn').disabled = true;
+                document.getElementById('totalAttendanceCount').textContent = "0 회";
+                document.getElementById('streakAttendanceCount').textContent = "0 일";
+                document.getElementById('attendanceHistoryList').innerHTML = "로그인 후 이용해주세요.";
+                return;
+            }
+
+            const todayStr = getTodayDateString();
+            const attRef = ref(db, `attendance/${currentUser.uid}`);
+            const snapshot = await get(attRef);
+            
+            let history = {};
+            if(snapshot.exists()) {
+                history = snapshot.val();
+            }
+
+            const todayChecked = history[todayStr] ? true : false;
+            const statusEl = document.getElementById('todayAttendanceStatus');
+            const btnEl = document.getElementById('checkAttendanceBtn');
+
+            if(todayChecked) {
+                statusEl.textContent = "오늘 이미 출석체크를 완료했습니다! ✅";
+                statusEl.style.color = "green";
+                btnEl.disabled = true;
+                btnEl.style.backgroundColor = "#ccc";
+                btnEl.textContent = "출석 완료";
+            } else {
+                statusEl.textContent = "오늘 아직 출석체크를 하지 않았습니다.";
+                statusEl.style.color = "crimson";
+                btnEl.disabled = false;
+                btnEl.style.backgroundColor = "var(--primary-color)";
+                btnEl.textContent = "출석 체크하기 (+20P)";
+            }
+
+            // 누적 및 연속 출석 계산
+            const dates = Object.keys(history).sort();
+            const totalCount = dates.length;
+            
+            let streak = 0;
+            let checkDate = new Date();
+            let checkStr = getTodayDateString();
+            
+            if(!history[checkStr]) {
+                checkDate.setDate(checkDate.getDate() - 1);
+                checkStr = `${checkDate.getFullYear()}-${String(checkDate.getMonth() + 1).padStart(2, '0')}-${String(checkDate.getDate()).padStart(2, '0')}`;
+            }
+
+            while(history[checkStr]) {
+                streak++;
+                checkDate.setDate(checkDate.getDate() - 1);
+                checkStr = `${checkDate.getFullYear()}-${String(checkDate.getMonth() + 1).padStart(2, '0')}-${String(checkDate.getDate()).padStart(2, '0')}`;
+            }
+
+            document.getElementById('totalAttendanceCount').textContent = `${totalCount} 회`;
+            document.getElementById('streakAttendanceCount').textContent = `${streak} 일`;
+
+            // 최근 기록 렌더링
+            const historyContainer = document.getElementById('attendanceHistoryList');
+            if(dates.length === 0) {
+                historyContainer.innerHTML = '<p style="color:#999; text-align:center;">출석 기록이 없습니다.</p>';
+            } else {
+                historyContainer.innerHTML = dates.reverse().slice(0, 10).map(d => `
+                    <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: #fff; margin-bottom: 4px; border-radius: 4px; border: 1px solid #eee;">
+                        <span>📅 ${d}</span>
+                        <span style="color: green; font-weight: bold;">출석 완료 (+20P)</span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        window.doAttendance = async function() {
+            if(!currentUser) return alert("로그인이 필요합니다."), openModal('authModal');
+            const todayStr = getTodayDateString();
+            const attRef = ref(db, `attendance/${currentUser.uid}/${todayStr}`);
+            const snapshot = await get(attRef);
+            if(snapshot.exists()) return alert("이미 오늘 출석체크를 완료하셨습니다.");
+
+            await set(attRef, { timestamp: Date.now() });
+            await addPoints(20);
+            alert("🎉 출석 체크 완료! 20포인트가 지급되었습니다.");
+            loadAttendanceData();
         }
 
         const checkbox = document.getElementById('is-private-checkbox');
@@ -634,7 +750,10 @@
                     if(snap.exists()) {
                         currentUserProfile = snap.val();
                         updateAuthUI();
-                        if(document.getElementById('profileScreen').classList.contains('active')) updateProfileUI();
+                        if(document.getElementById('profileScreen').classList.contains('active')) {
+                            updateProfileUI();
+                            loadAttendanceData();
+                        }
                     }
                 });
             } else { currentUserProfile = {}; }
@@ -643,6 +762,7 @@
                 const data = snapshot.val() || {};
                 renderChatRooms(Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse());
             });
+            if(document.getElementById('profileScreen').classList.contains('active')) loadAttendanceData();
         });
 
         function updateAuthUI() {
@@ -744,7 +864,6 @@
             loadMyGroupsForInvite();
         }
 
-        // 그룹 초대 기능 로직 추가
         window.loadMyGroupsForInvite = async function() {
             const select = document.getElementById('inviteGroupSelect');
             if(!select || !currentUser) return;
