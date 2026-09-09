@@ -77,13 +77,11 @@
         .switch-mode { text-align: center; font-size: 0.85rem; margin-top: 1rem; }
         .switch-mode span { color: var(--primary-color); cursor: pointer; font-weight: bold; text-decoration: underline; }
 
-        /* 프로필 아바타 스타일 */
         .user-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; background-color: #ccc; display: inline-block; vertical-align: middle; }
         .profile-big-avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color); background-color: #ddd; margin-bottom: 10px; }
         .comment-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; vertical-align: middle; margin-right: 4px; }
         .chat-avatar { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; vertical-align: middle; margin-right: 4px; }
 
-        /* 푸터(저작권 표시) 스타일 */
         footer { background-color: #e9ecef; color: #555; text-align: center; padding: 1.2rem; font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: auto; }
     </style>
 </head>
@@ -107,16 +105,13 @@
         </div>
     </header>
 
-    <!-- 메인 화면 (공지사항 + 알림 소통 마당 동시 노출) -->
     <main id="mainScreen" class="screen active">
         <div class="full-container">
-            <!-- 메인 화면 공지사항 섹션 -->
             <div class="card">
                 <div class="section-title">📢 공지사항</div>
                 <div id="mainNoticeList"><span style="color:#999; text-align:center; display:block;">등록된 공지가 없습니다.</span></div>
             </div>
 
-            <!-- 알림 소통 마당 섹션 -->
             <div class="card">
                 <div class="section-title">알림 소통 마당 <span style="font-size:0.8rem; font-weight:normal; color:#666;">(게시글 작성 +10P, 댓글 +3P)</span></div>
                 <form onsubmit="handlePostSubmit(event, 'main')">
@@ -134,7 +129,6 @@
         </div>
     </main>
 
-    <!-- 공지사항 화면 -->
     <main id="noticeScreen" class="screen">
         <div class="full-container">
             <div class="card">
@@ -144,7 +138,6 @@
         </div>
     </main>
 
-    <!-- 실시간 채팅 화면 -->
     <main id="chatScreen" class="screen">
         <div class="full-container">
             <div class="card">
@@ -169,7 +162,6 @@
         </div>
     </main>
 
-    <!-- 개별 채팅방 내부 화면 -->
     <main id="roomDetailScreen" class="screen">
         <div class="full-container">
             <div class="card">
@@ -188,7 +180,6 @@
         </div>
     </main>
 
-    <!-- 게시물 검색 화면 -->
     <main id="searchScreen" class="screen">
         <div class="full-container">
             <div class="card">
@@ -213,7 +204,6 @@
         </div>
     </main>
 
-    <!-- 행사 예약 화면 -->
     <main id="eventScreen" class="screen">
         <div class="full-container">
             <div class="card">
@@ -223,7 +213,6 @@
         </div>
     </main>
 
-    <!-- 부가 기능 화면 -->
     <main id="toolsScreen" class="screen">
         <div class="full-container">
             <div class="card">
@@ -259,13 +248,11 @@
         </div>
     </main>
 
-    <!-- 마이페이지 화면 -->
     <main id="profileScreen" class="screen">
         <div class="full-container">
             <div class="card">
                 <div class="section-title">👤 마이페이지 및 포인트 상점</div>
                 
-                <!-- 프로필 꾸미기 섹션 -->
                 <div style="background: #f9f9f9; padding: 20px; border-radius: 6px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px;">
                     <div>
                         <img id="profileBigAvatar" src="" class="profile-big-avatar" alt="프로필 이미지">
@@ -281,7 +268,6 @@
                     </div>
                 </div>
 
-                <!-- 출석 체크 섹션 -->
                 <div style="background: #f4f8fb; border: 1px solid #d0e1f9; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
                     <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-color);">📅 일일 출석 체크</h3>
                     <p style="margin-bottom: 15px; color: #555; font-size: 0.95rem;">매일 출석을 체크하고 <strong>포인트(+20P)</strong>를 받아가세요!</p>
@@ -303,7 +289,6 @@
                     <div id="attendanceHistoryList" style="font-size: 0.85rem; color: #666; max-height: 150px; overflow-y: auto;">출석 기록을 불러오는 중...</div>
                 </div>
 
-                <!-- 그룹 만들기 UI -->
                 <div style="background: #e3f2fd; border: 1px solid #90caf9; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
                     <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: #1565c0;">👥 소속 그룹 만들기</h3>
                     <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">500 포인트를 사용하여 나만의 그룹을 생성하고 특별한 태그를 얻어보세요.</p>
@@ -317,7 +302,6 @@
                     <button class="submit-btn" style="background-color: #1976d2;" onclick="createGroup()">그룹 만들기 (500P)</button>
                 </div>
 
-                <!-- 그룹 초대 기능 -->
                 <div style="background: #e8f5e9; border: 1px solid #a5d6a7; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
                     <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: #2e7d32;">📨 그룹 초대하기</h3>
                     <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">내가 생성한 그룹에 다른 유저를 이메일로 초대하여 태그를 공유할 수 있습니다.</p>
@@ -341,13 +325,11 @@
         </div>
     </main>
 
-    <!-- 관리자 전용 화면 -->
     <main id="adminScreen" class="screen">
         <div class="full-container">
             <div class="card">
                 <div class="section-title" style="color: #d31900; border-color: #d31900;">👑 관리자 전용 메뉴</div>
                 
-                <!-- 회원 관리 섹션 -->
                 <h3 style="margin-top: 10px; color: var(--primary-color);">1. 회원 검색 및 제재 관리 (강퇴/추방 및 일시 정지)</h3>
                 <div style="background:#f9f9f9; padding:15px; border-radius:6px; margin-bottom:20px;">
                     <input type="text" id="adminUserSearchInput" class="input-box" placeholder="회원 이름(닉네임) 또는 이메일로 검색" oninput="filterAdminUserList()">
@@ -396,7 +378,6 @@
         </div>
     </main>
 
-    <!-- 상세 페이지 -->
     <main id="detailScreen" class="screen">
         <div class="full-container">
             <div class="card">
@@ -431,7 +412,6 @@
         </div>
     </main>
 
-    <!-- 수정 모달 -->
     <div class="modal-overlay" id="editModal">
         <div class="modal-window">
             <button class="modal-close" onclick="closeModal('editModal')">&times;</button>
@@ -443,7 +423,6 @@
         </div>
     </div>
 
-    <!-- 로그인/회원가입 모달 -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-window">
             <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
@@ -474,7 +453,6 @@
         </div>
     </div>
 
-    <!-- 푸터 (저작권 표시) -->
     <footer>
         Copyright &copy; Studio BANG. All rights reserved.
     </footer>
@@ -1172,7 +1150,6 @@
                 container.innerHTML = '<span style="color:#999; text-align:center; display:block;">등록된 공지가 없습니다.</span>';
                 return;
             }
-            // 메인 화면에는 최신 공지 3개만 간략히 노출
             container.innerHTML = notices.slice(0, 3).map(n => `
                 <div class="notice-item" style="padding: 8px 0;">
                     <div>
@@ -1542,134 +1519,177 @@
                 return `
                 <div class="event-card">
                     <h3 style="color:var(--primary-color); margin-bottom:5px;">${ev.title}</h3>
-                    <p style="font-size:0.95rem; margin-bottom:15px; white-space:pre-wrap;">${ev.desc}</p>
-                    ${!ev.sessions || ev.sessions.length === 0 ? '<p style="font-size:0.85rem; color:#888;">예약 가능한 회차가 없습니다.</p>' : 
-                    ev.sessions.map((s, idx) => `
-                        <div class="session-row">
-                            <div><strong>[${idx+1}회차]</strong> ${s.time} <span style="font-size:0.8rem; color:#666; margin-left:10px;">(${s.booked || 0}/${s.capacity}명)</span></div>
-                            <button class="submit-btn" style="padding:4px 10px; font-size:0.85rem; ${isBookedEvent ? 'background-color:#6c757d;' : ''}" 
-                                onclick="reserveSession('${ev.id}', ${idx})" ${isBookedEvent ? 'disabled' : ''}>
-                                ${isBookedEvent ? '예약완료' : ((s.booked || 0) >= s.capacity ? '마감' : '예약하기')}
-                            </button>
-                        </div>
-                    `).join('')}
+                    <p style="font-size:0.95rem; margin-bottom:15px; color:#555;">${ev.desc}</p>
+                    <h4 style="font-size:0.95rem; margin-bottom:8px;">회차별 시간 및 예약 현황</h4>
+                    ${ev.sessions ? Object.keys(ev.sessions).map(sKey => {
+                        const s = ev.sessions[sKey];
+                        const count = s.participants ? Object.keys(s.participants).length : 0;
+                        const isMySession = s.participants && currentUser && s.participants[currentUser.uid];
+                        const isFull = count >= s.max;
+                        return `
+                            <div class="session-row">
+                                <div>
+                                    <strong>⏰ ${s.time}</strong> 
+                                    <span style="font-size:0.85rem; color:#666; margin-left:10px;">(신청 인원: <strong style="color:${isFull?'crimson':'var(--primary-color)'};">${count}</strong> / ${s.max}명)</span>
+                                </div>
+                                <div>
+                                    ${isMySession ? 
+                                        `<button class="delete-btn" onclick="cancelEventSession('${ev.id}', '${sKey}')">예약 취소</button>` : 
+                                        isFull ? 
+                                        `<span style="color:#999; font-size:0.85rem; font-weight:bold;">마감됨</span>` : 
+                                        isBookedEvent ? 
+                                        `<span style="color:#999; font-size:0.85rem;">다른 회차 예약중</span>` : 
+                                        `<button class="submit-btn" style="padding:4px 10px; font-size:0.85rem;" onclick="bookEventSession('${ev.id}', '${sKey}')">예약하기</button>`
+                                    }
+                                </div>
+                            </div>
+                        `;
+                    }).join('') : '<p style="color:#999; font-size:0.9rem;">등록된 회차가 없습니다.</p>'}
                 </div>
-            `}).join('');
+            `;
+            }).join('');
         }
 
         window.addEvent = async function() {
-            if(!currentUser || !isAdmin(currentUser.email)) return;
+            if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
             const title = document.getElementById('adminEventTitle').value.trim();
             const desc = document.getElementById('adminEventDesc').value.trim();
-            if(!title) return alert("행사명을 입력하세요.");
-            await push(ref(db, "events"), { title, desc, sessions: [], participants: {} });
+            if(!title || !desc) return alert("행사명과 설명을 입력하세요.");
+            await push(ref(db, "events"), { title, desc, createdAt: Date.now() });
             document.getElementById('adminEventTitle').value = ''; document.getElementById('adminEventDesc').value = '';
-            alert("행사가 등록되었습니다.");
+            alert("행사가 생성되었습니다.");
         }
 
         window.deleteEvent = async function(eventId) {
-            if(!currentUser || !isAdmin(currentUser.email)) return;
-            if(confirm("행사를 삭제하시겠습니까? 관련 예약 내역도 삭제됩니다.")) {
+            if(confirm("행사를 삭제하시겠습니까?")) {
                 await remove(ref(db, `events/${eventId}`));
-                alert("삭제 완료되었습니다.");
+                alert("삭제되었습니다.");
             }
         }
 
         window.addSession = async function() {
-            if(!currentUser || !isAdmin(currentUser.email)) return;
+            if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
             const eventId = document.getElementById('adminEventSelect').value;
             const time = document.getElementById('adminSessionTime').value.trim();
-            const capacity = parseInt(document.getElementById('adminSessionMax').value);
-            if(!eventId || !time || isNaN(capacity)) return alert("정보를 정확히 입력하세요.");
-
-            const ev = window.events.find(e => e.id === eventId);
-            const sessions = ev.sessions || [];
-            sessions.push({ time, capacity, booked: 0 });
-            await update(ref(db, `events/${eventId}`), { sessions });
+            const max = parseInt(document.getElementById('adminSessionMax').value);
+            if(!eventId || !time || isNaN(max)) return alert("모든 정보를 입력하세요.");
+            await push(ref(db, `events/${eventId}/sessions`), { time, max });
             document.getElementById('adminSessionTime').value = ''; document.getElementById('adminSessionMax').value = '';
             alert("회차가 추가되었습니다.");
         }
 
-        window.reserveSession = async function(eventId, sessionIdx) {
-            if(!currentUser) return alert("예약하려면 로그인이 필요합니다."), openModal('authModal');
+        window.bookEventSession = async function(eventId, sessionKey) {
+            if(!currentUser) return alert("로그인이 필요합니다."), openModal('authModal');
             if (currentUserProfile.isBanned) return alert("강퇴(추방)되어 이용하실 수 없습니다.");
             if (currentUserProfile.isSuspended) return alert(`일시 정지된 회원입니다. (사유: ${currentUserProfile.suspendedReason || '없음'})`);
 
-            const ev = window.events.find(e => e.id === eventId);
+            const evRef = ref(db, `events/${eventId}`);
+            const snap = await get(evRef);
+            if(!snap.exists()) return alert("행사를 찾을 수 없습니다.");
+            const evData = snap.val();
             
-            if (ev.participants && ev.participants[currentUser.uid]) {
-                return alert("이 프로그램(행사)에는 이미 예약하셨습니다.");
+            if(evData.participants && evData.participants[currentUser.uid]) {
+                return alert("이 행사는 이미 다른 회차를 예약하셨습니다. (1인 1회차만 예약 가능)");
             }
 
-            const session = ev.sessions[sessionIdx];
-            if((session.booked || 0) >= session.capacity) return alert("정원이 마감되었습니다.");
+            const sessionRef = ref(db, `events/${eventId}/sessions/${sessionKey}`);
+            const sSnap = await get(sessionRef);
+            if(!sSnap.exists()) return alert("회차를 찾을 수 없습니다.");
+            const sData = sSnap.val();
+            const participants = sData.participants || {};
+            const count = Object.keys(participants).length;
 
-            const updatedSessions = [...ev.sessions];
-            updatedSessions[sessionIdx].booked = (updatedSessions[sessionIdx].booked || 0) + 1;
+            if(count >= sData.max) return alert("정원이 마감되었습니다.");
+
+            participants[currentUser.uid] = { email: currentUser.email, nickname: currentUserProfile.nickname || '익명' };
+            const globalParticipants = evData.participants || {};
+            globalParticipants[currentUser.uid] = sessionKey;
+
+            await update(sessionRef, { participants });
+            await update(evRef, { participants: globalParticipants });
+            alert("행사 예약이 완료되었습니다!");
+        }
+
+        window.cancelEventSession = async function(eventId, sessionKey) {
+            if(!currentUser) return;
+            if(!confirm("예약을 취소하시겠습니까?")) return;
+
+            const evRef = ref(db, `events/${eventId}`);
+            const snap = await get(evRef);
+            if(!snap.exists()) return;
+            const evData = snap.val();
+
+            const sessionRef = ref(db, `events/${eventId}/sessions/${sessionKey}`);
+            const sSnap = await get(sessionRef);
+            if(!sSnap.exists()) return;
+            const sData = sSnap.val();
             
-            const participants = ev.participants || {};
-            participants[currentUser.uid] = true;
+            const participants = sData.participants || {};
+            delete participants[currentUser.uid];
 
-            await update(ref(db, `events/${eventId}`), { 
-                sessions: updatedSessions,
-                participants: participants 
-            });
-            alert(`[${ev.title}] - ${session.time} 예약 완료!`);
+            const globalParticipants = evData.participants || {};
+            delete globalParticipants[currentUser.uid];
+
+            await update(sessionRef, { participants });
+            await update(evRef, { participants: globalParticipants });
+            alert("예약이 취소되었습니다.");
         }
 
-        window.runRoulette = () => {
-            const items = document.getElementById('rouletteInput').value.split(',').map(s=>s.trim()).filter(s=>s);
-            if(items.length < 2) return alert("2개 이상의 항목을 입력하세요.");
-            const resBox = document.getElementById('rouletteResult');
-            let counter = 0;
-            const interval = setInterval(() => {
-                resBox.textContent = `🎲 ${items[Math.floor(Math.random() * items.length)]}`;
-                if(++counter > 15) {
-                    clearInterval(interval);
-                    const finalItem = items[Math.floor(Math.random() * items.length)];
-                    resBox.innerHTML = `🎉 당첨: <strong style="color:var(--danger-color); font-size:1.2rem;">${finalItem}</strong> 🎉`;
-                }
-            }, 100);
+        window.runRoulette = function() {
+            const input = document.getElementById('rouletteInput').value;
+            const items = input.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            if(items.length === 0) return alert("항목을 하나 이상 입력해주세요.");
+            const result = items[Math.floor(Math.random() * items.length)];
+            document.getElementById('rouletteResult').textContent = `🎯 룰렛 결과: [ ${result} ] 당첨!`;
         }
 
-        window.runLadder = () => {
-            const p = document.getElementById('ladderPersons').value.split(',').map(s=>s.trim()).filter(s=>s);
-            const r = document.getElementById('ladderResults').value.split(',').map(s=>s.trim()).filter(s=>s);
-            if(p.length !== r.length || p.length < 2) return alert("참가자 수와 결과 항목 수가 같아야 하며, 최소 2개 이상이어야 합니다.");
-            const resBox = document.getElementById('ladderResult');
-            resBox.textContent = "사다리 타는 중... 🪜🏃";
-            setTimeout(() => {
-                let shuffledR = [...r].sort(() => Math.random() - 0.5);
-                let resultHTML = '<ul style="list-style:none; padding:0;">';
-                p.forEach((person, idx) => {
-                    resultHTML += `<li style="margin-bottom:8px;">${person} ➡ <strong>${shuffledR[idx]}</strong></li>`;
-                });
-                resultHTML += '</ul>';
-                resBox.innerHTML = resultHTML;
-            }, 1500);
-        }
-
-        window.runTeamMaker = () => {
-            const m = document.getElementById('teamMembers').value.split(',').map(s=>s.trim()).filter(s=>s);
-            const c = parseInt(document.getElementById('teamCount').value);
-            if(m.length < 2) return alert("최소 2명 이상 입력하세요.");
-            if(c < 1 || c > m.length) return alert("유효한 팀 수를 입력하세요.");
+        window.runLadder = function() {
+            const personsInput = document.getElementById('ladderPersons').value;
+            const resultsInput = document.getElementById('ladderResults').value;
+            const persons = personsInput.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            const results = resultsInput.split(',').map(s => s.trim()).filter(s => s.length > 0);
             
-            let shuffled = [...m].sort(() => Math.random() - 0.5);
-            let teams = Array.from({length: c}, () => []);
-            shuffled.forEach((member, idx) => teams[idx % c].push(member));
+            if(persons.length === 0 || results.length === 0) return alert("참가자와 결과를 모두 입력해주세요.");
+            
+            let shuffledResults = [...results];
+            for (let i = shuffledResults.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledResults[i], shuffledResults[j]] = [shuffledResults[j], shuffledResults[i]];
+            }
 
-            let resHTML = '<div style="display:flex; flex-wrap:wrap; gap:10px;">';
-            teams.forEach((t, i) => {
-                resHTML += `<div style="flex:1; min-width:120px; background:#fff; border:1px solid #ddd; padding:10px; border-radius:4px; text-align:center;">
-                    <div style="font-weight:bold; color:var(--primary-color); margin-bottom:5px;">${i+1}팀</div>
-                    <div>${t.join('<br>')}</div>
-                </div>`;
-            });
-            resHTML += '</div>';
-            document.getElementById('teamResult').innerHTML = resHTML;
+            let text = "🪜 사다리 타기 결과:\n";
+            for(let i=0; i<persons.length; i++) {
+                const res = shuffledResults[i % shuffledResults.length];
+                text += `• ${persons[i]} ➔ ${res}\n`;
+            }
+            document.getElementById('ladderResult').innerHTML = text.replace(/\n/g, '<br>');
         }
 
+        window.runTeamMaker = function() {
+            const membersInput = document.getElementById('teamMembers').value;
+            const count = parseInt(document.getElementById('teamCount').value);
+            const members = membersInput.split(',').map(s => s.trim()).filter(s => s.length > 0);
+
+            if(members.length === 0) return alert("나눌 사람 이름을 입력해주세요.");
+            if(isNaN(count) || count < 1) return alert("올바른 팀 수를 입력해주세요.");
+            
+            let shuffled = [...members];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            let teams = Array.from({ length: count }, () => []);
+            shuffled.forEach((m, idx) => {
+                teams[idx % count].push(m);
+            });
+
+            let text = "👥 랜덤 팀 나누기 결과:<br>";
+            teams.forEach((team, idx) => {
+                text += `[ ${idx + 1}팀 ] : ${team.join(', ') || '인원 없음'}<br>`;
+            });
+            document.getElementById('teamResult').innerHTML = text;
+        }
     </script>
 </body>
 </html>
