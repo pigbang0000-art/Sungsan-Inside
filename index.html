@@ -53,7 +53,6 @@
             overflow-x: hidden;
         }
 
-        /* App Layout Structure */
         .app-container {
             display: flex;
             width: 100%;
@@ -61,7 +60,6 @@
             position: relative;
         }
 
-        /* --- Left Vertical Hover Sidebar (PC Focus) --- */
         .sidebar {
             position: fixed;
             top: 0;
@@ -79,7 +77,6 @@
             box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5);
         }
 
-        /* Hover Expansion on PC */
         @media (min-width: 769px) {
             .sidebar:hover {
                 width: var(--sidebar-width-expanded);
@@ -121,7 +118,6 @@
 
         .sidebar:hover .sidebar-logo-text { opacity: 1; }
 
-        /* Sidebar Auth Profile Section */
         .sidebar-user-card {
             padding: 16px 14px;
             margin: 12px 10px;
@@ -166,7 +162,6 @@
             gap: 6px;
         }
 
-        /* Nav Items */
         .sidebar-nav {
             flex: 1;
             padding: 10px 0;
@@ -211,7 +206,6 @@
 
         .sidebar:hover .nav-label { opacity: 1; }
 
-        /* Main Content Wrapper */
         .main-wrapper {
             flex: 1;
             margin-left: var(--sidebar-width-collapsed);
@@ -222,7 +216,6 @@
             transition: margin-left 0.3s ease;
         }
 
-        /* Mobile Top Header Bar */
         .mobile-header {
             display: none;
             height: var(--top-height-mobile);
@@ -236,7 +229,6 @@
             z-index: 900;
         }
 
-        /* Screen & Container Styling */
         .screen { display: none; flex: 1; padding: 2rem 1.5rem; }
         .screen.active { display: block; animation: fadeIn 0.25s ease-out; }
 
@@ -247,7 +239,6 @@
 
         .full-container { max-width: 1100px; margin: 0 auto; width: 100%; }
 
-        /* Dark Mode Card */
         .card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -270,7 +261,6 @@
             justify-content: space-between;
         }
 
-        /* Inputs & Form Controls */
         .input-box {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -297,7 +287,6 @@
             color: var(--text-sub);
         }
 
-        /* Buttons */
         .submit-btn {
             background-color: var(--primary);
             color: white;
@@ -342,7 +331,6 @@
 
         .edit-btn:hover { background-color: var(--primary); color: white; }
 
-        /* Item lists */
         .feed-item {
             padding: 1rem 0;
             border-bottom: 1px solid var(--border-color);
@@ -380,7 +368,6 @@
         .notice-title-link { cursor: pointer; font-weight: 600; color: var(--text-main); font-size: 1rem; }
         .notice-title-link:hover { color: #818cf8; text-decoration: underline; }
 
-        /* Detail Screen */
         .detail-title { font-size: 1.6rem; color: var(--text-main); margin-bottom: 0.5rem; font-weight: 700; }
         .detail-content { min-height: 150px; white-space: pre-wrap; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; color: #e2e8f0; }
         .detail-image { max-width: 100%; border-radius: 8px; margin-top: 15px; margin-bottom: 1.5rem; border: 1px solid var(--border-color); }
@@ -404,7 +391,6 @@
         .reaction-btn.liked { color: var(--like); border-color: var(--like); background: rgba(236, 72, 153, 0.15); }
         .reaction-btn.disliked { color: var(--danger); border-color: var(--danger); background: rgba(239, 68, 68, 0.15); }
 
-        /* Events & Utilities Tab */
         .event-card { border: 1px solid var(--border-color); padding: 18px; margin-bottom: 15px; border-radius: 10px; background: rgba(255, 255, 255, 0.02); }
         .session-row { display: flex; justify-content: space-between; background: var(--bg-surface); padding: 12px; margin-top: 8px; align-items: center; border-radius: 8px; border: 1px solid var(--border-color); flex-wrap: wrap; gap: 10px; }
 
@@ -415,7 +401,6 @@
         .tool-content.active { display: block; }
         .result-box { background: var(--bg-input); border: 1px dashed var(--primary); padding: 15px; border-radius: 8px; margin-top: 15px; min-height: 60px; font-weight: bold; word-break: break-all; color: var(--text-main); }
 
-        /* Modals */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(4px); justify-content: center; align-items: center; z-index: 2000; padding: 15px; }
         .modal-overlay.active { display: flex; }
         .modal-window { background: var(--bg-card); border: 1px solid var(--border-color); width: 100%; max-width: 420px; padding: 2rem; border-radius: 14px; position: relative; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
@@ -423,7 +408,6 @@
         .switch-mode { text-align: center; font-size: 0.85rem; margin-top: 1rem; color: var(--text-sub); }
         .switch-mode span { color: var(--primary); cursor: pointer; font-weight: bold; text-decoration: underline; }
 
-        /* User Avatar Components */
         .user-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-color); background-color: #334155; display: inline-block; vertical-align: middle; }
         .profile-big-avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); background-color: #334155; margin-bottom: 10px; }
         .comment-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-color); vertical-align: middle; margin-right: 4px; }
@@ -434,7 +418,6 @@
 
         footer { background-color: #0b0f19; color: var(--text-muted); text-align: center; padding: 1.5rem; font-size: 0.85rem; border-top: 1px solid var(--border-color); margin-top: auto; }
 
-        /* Mobile Responsive Focus Options */
         @media (max-width: 768px) {
             .sidebar {
                 transform: translateX(-100%);
@@ -503,12 +486,8 @@
                 <span class="sidebar-logo-text">SUNGSAN_Inside</span>
             </div>
 
-            <!-- Profile & Quick Auth Slot -->
-            <div id="sidebarAuthArea">
-                <!-- Dynamically Inserted -->
-            </div>
+            <div id="sidebarAuthArea"></div>
 
-            <!-- Nav Menus -->
             <nav class="sidebar-nav">
                 <a class="nav-item active" onclick="navTo('mainScreen', this)">
                     <span class="nav-label">메인 홈</span>
@@ -538,7 +517,6 @@
         </aside>
 
         <div class="main-wrapper">
-            <!-- Mobile Top Header -->
             <div class="mobile-header">
                 <button onclick="toggleMobileSidebar()" style="background:none; border:none; color:var(--text-main); font-size:1.5rem; cursor:pointer;">☰</button>
                 <span style="font-weight:700; font-size:1.1rem; cursor:pointer;" onclick="showScreen('mainScreen')">SUNGSAN_Inside</span>
@@ -664,6 +642,7 @@
                             <button class="tool-tab-btn active" onclick="switchToolTab('roulette')">룰렛 돌리기</button>
                             <button class="tool-tab-btn" onclick="switchToolTab('ladder')">사다리 타기</button>
                             <button class="tool-tab-btn" onclick="switchToolTab('team')">팀 자동 나누기</button>
+                            <button class="tool-tab-btn" onclick="switchToolTab('timer')">타이머</button>
                         </div>
                         <div id="tool-roulette" class="tool-content active">
                             <p style="margin-bottom: 10px; font-size:0.9rem; color:var(--text-sub);">항목을 쉼표(,)로 구분해서 적어주세요.</p>
@@ -686,6 +665,21 @@
                             </div>
                             <button class="submit-btn" onclick="runTeamMaker()">랜덤 팀 나누기!</button>
                             <div id="teamResult" class="result-box">결과가 여기에 표시됩니다.</div>
+                        </div>
+                        <div id="tool-timer" class="tool-content">
+                            <p style="margin-bottom: 10px; font-size:0.9rem; color:var(--text-sub);">원하는 시간을 설정하고 타이머를 시작하세요.</p>
+                            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px;">
+                                <input type="number" id="timerMinutes" class="input-box" style="margin:0; flex:1;" placeholder="분" min="0" value="3">
+                                <span style="color:var(--text-main); font-weight:bold;">분</span>
+                                <input type="number" id="timerSeconds" class="input-box" style="margin:0; flex:1;" placeholder="초" min="0" max="59" value="0">
+                                <span style="color:var(--text-main); font-weight:bold;">초</span>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="submit-btn" style="flex:1;" onclick="startTimer()">시작</button>
+                                <button class="submit-btn" style="flex:1; background-color: var(--point);" onclick="pauseTimer()">일시정지</button>
+                                <button class="submit-btn" style="flex:1; background-color: var(--danger);" onclick="resetTimer()">초기화</button>
+                            </div>
+                            <div id="timerDisplay" class="result-box" style="text-align: center; font-size: 2.5rem; letter-spacing: 2px;">03:00</div>
                         </div>
                     </div>
                 </div>
@@ -934,11 +928,635 @@
         
         let posts = [];
         let notices = [];
+        let events = [];
         let allUsersCache = []; 
         let currentViewItem = null; 
         let currentScreenBeforeDetail = 'mainScreen';
         let currentActiveRoomId = null;
         let unsubscribeChat = null;
+        let editingTarget = null;
+
+        function toBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+
+        /* --- 게시물 관련 기능 --- */
+        onValue(ref(db, "posts"), (snapshot) => {
+            const data = snapshot.val() || {};
+            posts = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
+            renderMainFeed();
+            if (currentViewItem && !currentViewItem.isNotice) {
+                const updatedPost = posts.find(p => p.id === currentViewItem.id);
+                if (updatedPost) {
+                    renderPostDetail(updatedPost);
+                }
+            }
+        });
+
+        window.handlePostSubmit = async function(e, source) {
+            e.preventDefault();
+            if (!currentUser) return alert("로그인이 필요합니다."), openModal('authModal');
+            if (currentUserProfile.isBanned) return alert("강퇴(추방)되어 글을 작성할 수 없습니다.");
+            if (currentUserProfile.isSuspended) return alert(`일시 정지된 회원입니다. (사유: ${currentUserProfile.suspendedReason || '없음'})`);
+
+            const prefix = source === 'main' ? '1' : '2';
+            const topicEl = document.getElementById(`postTopic${prefix}`);
+            const titleEl = document.getElementById(`postTitle${prefix}`);
+            const contentEl = document.getElementById(`postContent${prefix}`);
+            const fileEl = document.getElementById(`postImage${prefix}`);
+
+            const topic = topicEl ? topicEl.value.trim() : '';
+            const title = titleEl ? titleEl.value.trim() : '';
+            const content = contentEl ? contentEl.value.trim() : '';
+            const file = fileEl && fileEl.files ? fileEl.files[0] : null;
+
+            if (!topic || !title || !content) return alert("주제, 제목, 내용을 모두 입력해주세요.");
+
+            let imageBase64 = null;
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) return alert("이미지 파일 크기는 2MB 이하여야 합니다.");
+                try {
+                    imageBase64 = await toBase64(file);
+                } catch (err) {
+                    return alert("이미지 변환 중 오류가 발생했습니다.");
+                }
+            }
+
+            const now = new Date();
+            const dateStr = `${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+            const newPost = {
+                topic,
+                title,
+                content,
+                author: currentUserProfile.nickname || '익명',
+                uid: currentUser.uid,
+                avatar: currentUserProfile.avatar || '',
+                groupTag: currentUserProfile.groupTag || '',
+                groupColor: currentUserProfile.groupColor || '',
+                date: dateStr,
+                createdAt: Date.now(),
+                image: imageBase64 || null
+            };
+
+            await push(ref(db, "posts"), newPost);
+            await addPoints(10);
+
+            if (topicEl) topicEl.value = '';
+            if (titleEl) titleEl.value = '';
+            if (contentEl) contentEl.value = '';
+            if (fileEl) fileEl.value = '';
+
+            alert("게시물이 등록되었습니다! (+10P)");
+        };
+
+        function renderMainFeed() {
+            const container = document.getElementById('mainFeedList');
+            if (!container) return;
+            if (posts.length === 0) {
+                container.innerHTML = '<span style="color:var(--text-muted); text-align:center; display:block; padding: 1rem;">등록된 게시물이 없습니다.</span>';
+                return;
+            }
+
+            container.innerHTML = posts.map(post => {
+                const commentCount = post.comments ? Object.keys(post.comments).length : 0;
+                const likeCount = post.likes ? Object.keys(post.likes).length : 0;
+
+                return `
+                    <div class="feed-item">
+                        <div class="feed-item-left">
+                            <span class="feed-topic">${post.topic}</span>
+                            <span class="feed-title" onclick="openPostDetail('${post.id}')">${post.title}</span>
+                            ${commentCount > 0 ? `<span style="color:var(--primary); font-weight:bold; font-size:0.85rem;">[${commentCount}]</span>` : ''}
+                            ${post.image ? '<span style="font-size:0.75rem; color:var(--point);">📷</span>' : ''}
+                        </div>
+                        <div class="feed-meta">
+                            <span>${renderUserCard(post.avatar, post.author, post.groupTag, post.groupColor)}</span>
+                            <span style="font-size:0.8rem; color:var(--text-sub);">${post.date || ''}</span>
+                            <span style="font-size:0.8rem; color:var(--like);">♥ ${likeCount}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.openPostDetail = function(postId) {
+            const post = posts.find(p => p.id === postId);
+            if (!post) return;
+            
+            const commentSection = document.getElementById('commentSectionContainer');
+            if (commentSection) commentSection.style.display = 'block';
+
+            renderPostDetail(post);
+            showScreen('detailScreen');
+        };
+
+        function renderPostDetail(post) {
+            currentViewItem = post;
+
+            const topicEl = document.getElementById('detailTopic');
+            const titleEl = document.getElementById('detailTitle');
+            const authorEl = document.getElementById('detailAuthor');
+            const dateEl = document.getElementById('detailDate');
+            const contentEl = document.getElementById('detailContent');
+            const imgContainer = document.getElementById('detailImageContainer');
+            const actionBtns = document.getElementById('detailActionBtns');
+
+            if (topicEl) topicEl.textContent = post.topic || '일반';
+            if (titleEl) titleEl.textContent = post.title || '';
+            if (authorEl) authorEl.innerHTML = renderUserCard(post.avatar, post.author || '익명', post.groupTag, post.groupColor);
+            if (dateEl) dateEl.textContent = post.date || '';
+            if (contentEl) contentEl.textContent = post.content || '';
+
+            if (imgContainer) {
+                if (post.image) {
+                    imgContainer.innerHTML = `<img src="${post.image}" class="detail-image" alt="첨부 이미지">`;
+                } else {
+                    imgContainer.innerHTML = '';
+                }
+            }
+
+            /* 엄격한 소유권/권한 확인 logic */
+            const isOwner = currentUser && (post.uid === currentUser.uid || isAdmin(currentUser.email));
+            if (actionBtns) {
+                actionBtns.innerHTML = isOwner ? `
+                    <button class="edit-btn" onclick="openEditModal('post', '${post.id}')">수정</button>
+                    <button class="delete-btn" onclick="deletePost('${post.id}')">삭제</button>
+                ` : '';
+            }
+
+            const reactionBar = document.getElementById('reactionBar');
+            if (reactionBar) reactionBar.style.display = 'flex';
+
+            const likes = post.likes ? Object.keys(post.likes) : [];
+            const dislikes = post.dislikes ? Object.keys(post.dislikes) : [];
+
+            const likeCountEl = document.getElementById('likeCount');
+            const dislikeCountEl = document.getElementById('dislikeCount');
+            if (likeCountEl) likeCountEl.textContent = likes.length;
+            if (dislikeCountEl) dislikeCountEl.textContent = dislikes.length;
+
+            const likeBtn = document.getElementById('likeBtn');
+            const dislikeBtn = document.getElementById('dislikeBtn');
+            if (likeBtn) {
+                if (currentUser && post.likes && post.likes[currentUser.uid]) {
+                    likeBtn.classList.add('liked');
+                } else {
+                    likeBtn.classList.remove('liked');
+                }
+            }
+            if (dislikeBtn) {
+                if (currentUser && post.dislikes && post.dislikes[currentUser.uid]) {
+                    dislikeBtn.classList.add('disliked');
+                } else {
+                    dislikeBtn.classList.remove('disliked');
+                }
+            }
+
+            renderComments(post);
+        }
+
+        window.handleReaction = async function(type) {
+            if (!currentUser) return alert("로그인이 필요합니다."), openModal('authModal');
+            if (!currentViewItem || currentViewItem.isNotice) return;
+
+            const postId = currentViewItem.id;
+            const uid = currentUser.uid;
+
+            const likesRef = ref(db, `posts/${postId}/likes/${uid}`);
+            const dislikesRef = ref(db, `posts/${postId}/dislikes/${uid}`);
+
+            const isLiked = currentViewItem.likes && currentViewItem.likes[uid];
+            const isDisliked = currentViewItem.dislikes && currentViewItem.dislikes[uid];
+
+            if (type === 'like') {
+                if (isLiked) {
+                    await remove(likesRef);
+                } else {
+                    await set(likesRef, true);
+                    if (isDisliked) await remove(dislikesRef);
+                }
+            } else if (type === 'dislike') {
+                if (isDisliked) {
+                    await remove(dislikesRef);
+                } else {
+                    await set(dislikesRef, true);
+                    if (isLiked) await remove(likesRef);
+                }
+            }
+        };
+
+        window.sharePost = function() {
+            if (!currentViewItem) return;
+            const url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert("게시물 링크가 클립보드에 복사되었습니다!");
+                }).catch(() => {
+                    alert(`현재 게시물 URL: ${url}`);
+                });
+            } else {
+                alert(`현재 게시물 URL: ${url}`);
+            }
+        };
+
+        function renderComments(post) {
+            const countEl = document.getElementById('commentCount');
+            const listEl = document.getElementById('commentList');
+            if (!listEl) return;
+
+            const rawComments = post.comments || {};
+            const comments = Object.keys(rawComments).map(k => ({ id: k, ...rawComments[k] }));
+
+            if (countEl) countEl.textContent = comments.length;
+
+            if (comments.length === 0) {
+                listEl.innerHTML = '<li style="color:var(--text-muted); font-size:0.9rem; text-align:center; padding: 10px;">작성된 댓글이 없습니다.</li>';
+                return;
+            }
+
+            comments.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+
+            listEl.innerHTML = comments.map(c => {
+                const isCommentOwner = currentUser && (c.uid === currentUser.uid || isAdmin(currentUser.email));
+                return `
+                    <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 4px;">
+                                ${renderUserCard(c.avatar, c.author, c.groupTag, c.groupColor)}
+                                <span style="font-size: 0.75rem; color: var(--text-muted); margin-left: 8px;">${c.date || ''}</span>
+                            </div>
+                            <div style="color: var(--text-main); font-size: 0.95rem; word-break: break-all;">${c.text}</div>
+                        </div>
+                        ${isCommentOwner ? `<button class="delete-btn" style="padding: 2px 6px; font-size: 0.75rem;" onclick="deleteComment('${post.id}', '${c.id}')">삭제</button>` : ''}
+                    </li>
+                `;
+            }).join('');
+        }
+
+        window.handleAddComment = async function(e) {
+            e.preventDefault();
+            if (!currentUser) return alert("로그인이 필요합니다."), openModal('authModal');
+            if (currentUserProfile.isBanned) return alert("강퇴(추방)되어 댓글을 작성할 수 없습니다.");
+            if (currentUserProfile.isSuspended) return alert(`일시 정지된 회원입니다. (사유: ${currentUserProfile.suspendedReason || '없음'})`);
+
+            if (!currentViewItem || currentViewItem.isNotice) return;
+
+            const inputEl = document.getElementById('commentInput');
+            if (!inputEl) return;
+            const text = inputEl.value.trim();
+            if (!text) return;
+
+            const now = new Date();
+            const dateStr = `${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+            const commentData = {
+                text,
+                author: currentUserProfile.nickname || '익명',
+                uid: currentUser.uid,
+                avatar: currentUserProfile.avatar || '',
+                groupTag: currentUserProfile.groupTag || '',
+                groupColor: currentUserProfile.groupColor || '',
+                date: dateStr,
+                createdAt: Date.now()
+            };
+
+            await push(ref(db, `posts/${currentViewItem.id}/comments`), commentData);
+            await addPoints(3);
+
+            inputEl.value = '';
+            alert("댓글이 등록되었습니다! (+3P)");
+        };
+
+        window.deleteComment = async function(postId, commentId) {
+            if (!currentUser) return;
+            if (confirm("정말로 이 댓글을 삭제하시겠습니까?")) {
+                await remove(ref(db, `posts/${postId}/comments/${commentId}`));
+                alert("댓글이 삭제되었습니다.");
+            }
+        };
+
+        window.executeSearch = function() {
+            const inputEl = document.getElementById('searchInput');
+            if (!inputEl) return;
+
+            const query = inputEl.value.trim().toLowerCase();
+            if (!query) {
+                renderSearchFeed(posts);
+                return;
+            }
+
+            const filtered = posts.filter(p => 
+                (p.title && p.title.toLowerCase().includes(query)) ||
+                (p.content && p.content.toLowerCase().includes(query)) ||
+                (p.author && p.author.toLowerCase().includes(query)) ||
+                (p.topic && p.topic.toLowerCase().includes(query))
+            );
+
+            renderSearchFeed(filtered);
+        };
+
+        window.resetSearch = function() {
+            const inputEl = document.getElementById('searchInput');
+            if (inputEl) inputEl.value = '';
+            renderSearchFeed(posts);
+        };
+
+        function renderSearchFeed(list) {
+            const container = document.getElementById('searchFeedList');
+            if (!container) return;
+
+            if (list.length === 0) {
+                container.innerHTML = '<span style="color:var(--text-muted); text-align:center; display:block; padding: 1.5rem;">검색된 게시물이 없습니다.</span>';
+                return;
+            }
+
+            container.innerHTML = list.map(post => {
+                const commentCount = post.comments ? Object.keys(post.comments).length : 0;
+                const likeCount = post.likes ? Object.keys(post.likes).length : 0;
+
+                return `
+                    <div class="feed-item">
+                        <div class="feed-item-left">
+                            <span class="feed-topic">${post.topic}</span>
+                            <span class="feed-title" onclick="openPostDetail('${post.id}')">${post.title}</span>
+                            ${commentCount > 0 ? `<span style="color:var(--primary); font-weight:bold; font-size:0.85rem;">[${commentCount}]</span>` : ''}
+                            ${post.image ? '<span style="font-size:0.75rem; color:var(--point);">📷</span>' : ''}
+                        </div>
+                        <div class="feed-meta">
+                            <span>${renderUserCard(post.avatar, post.author, post.groupTag, post.groupColor)}</span>
+                            <span style="font-size:0.8rem; color:var(--text-sub);">${post.date || ''}</span>
+                            <span style="font-size:0.8rem; color:var(--like);">♥ ${likeCount}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.openEditModal = function(type, id) {
+            editingTarget = { type, id };
+            const topicInput = document.getElementById('editTopicInput');
+            const titleInput = document.getElementById('editTitleInput');
+            const contentInput = document.getElementById('editContentInput');
+
+            if (type === 'post') {
+                const post = posts.find(p => p.id === id);
+                if (!post) return;
+                if (!currentUser || (post.uid !== currentUser.uid && !isAdmin(currentUser.email))) {
+                    return alert("본인의 게시물만 수정할 수 있습니다.");
+                }
+                if (topicInput) { topicInput.style.display = 'block'; topicInput.value = post.topic || ''; }
+                if (titleInput) titleInput.value = post.title || '';
+                if (contentInput) contentInput.value = post.content || '';
+            } else if (type === 'notice') {
+                const notice = notices.find(n => n.id === id);
+                if (!notice) return;
+                if (!currentUser || !isAdmin(currentUser.email)) {
+                    return alert("관리자만 수정할 수 있습니다.");
+                }
+                if (topicInput) topicInput.style.display = 'none';
+                if (titleInput) titleInput.value = notice.title || '';
+                if (contentInput) contentInput.value = notice.content || '';
+            }
+
+            openModal('editModal');
+        };
+
+        window.submitEdit = async function() {
+            if (!editingTarget) return;
+
+            const topicInput = document.getElementById('editTopicInput');
+            const titleInput = document.getElementById('editTitleInput');
+            const contentInput = document.getElementById('editContentInput');
+
+            const title = titleInput ? titleInput.value.trim() : '';
+            const content = contentInput ? contentInput.value.trim() : '';
+
+            if (!title || !content) return alert("제목과 내용을 입력하세요.");
+
+            if (editingTarget.type === 'post') {
+                const topic = topicInput ? topicInput.value.trim() : '일반';
+                const post = posts.find(p => p.id === editingTarget.id);
+                if (!post) return;
+                if (!currentUser || (post.uid !== currentUser.uid && !isAdmin(currentUser.email))) {
+                    return alert("수정 권한이 없습니다.");
+                }
+
+                await update(ref(db, `posts/${editingTarget.id}`), { topic, title, content });
+                alert("게시물이 수정되었습니다.");
+            } else if (editingTarget.type === 'notice') {
+                if (!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
+                await update(ref(db, `notices/${editingTarget.id}`), { title, content });
+                alert("공지사항이 수정되었습니다.");
+            }
+
+            closeModal('editModal');
+            editingTarget = null;
+        };
+
+        window.deletePost = async function(postId) {
+            const post = posts.find(p => p.id === postId);
+            if (!post) return;
+
+            if (!currentUser || (post.uid !== currentUser.uid && !isAdmin(currentUser.email))) {
+                return alert("삭제 권한이 없습니다.");
+            }
+
+            if (confirm("정말로 이 게시물을 삭제하시겠습니까?")) {
+                await remove(ref(db, `posts/${postId}`));
+                alert("게시물이 삭제되었습니다.");
+                if (currentViewItem && currentViewItem.id === postId) {
+                    showScreen(currentScreenBeforeDetail || 'mainScreen');
+                }
+            }
+        };
+
+        /* --- 공지사항 상세 조회 --- */
+        window.openNoticeDetail = function(noticeId) {
+            const notice = notices.find(n => n.id === noticeId);
+            if (!notice) return;
+            currentViewItem = { ...notice, isNotice: true };
+            
+            const topicEl = document.getElementById('detailTopic');
+            const titleEl = document.getElementById('detailTitle');
+            const authorEl = document.getElementById('detailAuthor');
+            const dateEl = document.getElementById('detailDate');
+            const contentEl = document.getElementById('detailContent');
+            const imgContainer = document.getElementById('detailImageContainer');
+            const reactionBar = document.getElementById('reactionBar');
+            const actionBtns = document.getElementById('detailActionBtns');
+            const commentSection = document.getElementById('commentSectionContainer');
+
+            if (topicEl) topicEl.textContent = '공지사항';
+            if (titleEl) titleEl.textContent = notice.title;
+            if (authorEl) authorEl.textContent = notice.author || '관리자';
+            if (dateEl) dateEl.textContent = notice.date || '';
+            if (contentEl) contentEl.textContent = notice.content;
+            if (imgContainer) imgContainer.innerHTML = '';
+
+            if (reactionBar) reactionBar.style.display = 'none';
+            if (commentSection) commentSection.style.display = 'none';
+
+            const isNoticeAdmin = currentUser && isAdmin(currentUser.email);
+            if (actionBtns) {
+                actionBtns.innerHTML = isNoticeAdmin ? `
+                    <button class="edit-btn" onclick="openEditModal('notice', '${notice.id}')">수정</button>
+                    <button class="delete-btn" onclick="deleteNotice('${notice.id}')">삭제</button>
+                ` : '';
+            }
+
+            showScreen('detailScreen');
+        };
+
+        /* --- 부가 유틸리티 Functions --- */
+        window.runRoulette = function() {
+            const input = document.getElementById('rouletteInput');
+            const resultBox = document.getElementById('rouletteResult');
+            if(!input || !resultBox) return;
+            const items = input.value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            if(items.length < 2) {
+                alert('최소 2개 이상의 항목을 쉼표(,)로 구분해서 입력해주세요.');
+                return;
+            }
+            const randomIndex = Math.floor(Math.random() * items.length);
+            const selected = items[randomIndex];
+            resultBox.innerHTML = `🎉 당첨 결과: <span style="color:var(--primary); font-size:1.3rem;">[ ${selected} ]</span>`;
+        };
+
+        window.runLadder = function() {
+            const personsInput = document.getElementById('ladderPersons');
+            const resultsInput = document.getElementById('ladderResults');
+            const resultBox = document.getElementById('ladderResult');
+            if(!personsInput || !resultsInput || !resultBox) return;
+
+            const persons = personsInput.value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            const results = resultsInput.value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+
+            if(persons.length === 0 || results.length === 0) {
+                alert('참가자 명단과 결과 항목을 입력해주세요.');
+                return;
+            }
+
+            const shuffledResults = [...results];
+            for (let i = shuffledResults.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledResults[i], shuffledResults[j]] = [shuffledResults[j], shuffledResults[i]];
+            }
+
+            let html = '<div style="display:flex; flex-direction:column; gap:6px;">';
+            persons.forEach((person, idx) => {
+                const res = shuffledResults[idx % shuffledResults.length];
+                html += `<div><strong>${person}</strong> 👉 <span style="color:var(--point);">${res}</span></div>`;
+            });
+            html += '</div>';
+            resultBox.innerHTML = html;
+        };
+
+        window.runTeamMaker = function() {
+            const membersInput = document.getElementById('teamMembers');
+            const teamCountInput = document.getElementById('teamCount');
+            const resultBox = document.getElementById('teamResult');
+            if(!membersInput || !teamCountInput || !resultBox) return;
+
+            const members = membersInput.value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            const teamCount = parseInt(teamCountInput.value) || 2;
+
+            if(members.length === 0) {
+                alert('참가자 이름을 입력해주세요.');
+                return;
+            }
+            if(teamCount < 1) {
+                alert('팀 수는 1 이상이어야 합니다.');
+                return;
+            }
+
+            const shuffled = [...members];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            const teams = Array.from({ length: teamCount }, () => []);
+            shuffled.forEach((m, idx) => {
+                teams[idx % teamCount].push(m);
+            });
+
+            let html = '<div style="display:flex; flex-direction:column; gap:10px;">';
+            teams.forEach((tMembers, idx) => {
+                html += `<div style="background:var(--bg-surface); padding:8px 12px; border-radius:6px; border:1px solid var(--border-color);"><strong style="color:var(--primary);">팀 ${idx + 1} (${tMembers.length}명):</strong> ${tMembers.join(', ')}</div>`;
+            });
+            html += '</div>';
+            resultBox.innerHTML = html;
+        };
+
+        /* --- Timer Logic --- */
+        let timerInterval = null;
+        let timerRemainingSeconds = 0;
+        let isTimerRunning = false;
+
+        window.updateTimerDisplay = function(sec) {
+            const m = Math.floor(sec / 60);
+            const s = sec % 60;
+            const display = document.getElementById('timerDisplay');
+            if(display) {
+                display.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            }
+        };
+
+        window.startTimer = function() {
+            if (isTimerRunning) return;
+
+            if (timerRemainingSeconds <= 0) {
+                const minEl = document.getElementById('timerMinutes');
+                const secEl = document.getElementById('timerSeconds');
+                const min = parseInt(minEl ? minEl.value : '0') || 0;
+                const sec = parseInt(secEl ? secEl.value : '0') || 0;
+                timerRemainingSeconds = min * 60 + sec;
+            }
+
+            if (timerRemainingSeconds <= 0) {
+                alert('시간을 1초 이상 설정해주세요.');
+                return;
+            }
+
+            isTimerRunning = true;
+            updateTimerDisplay(timerRemainingSeconds);
+
+            timerInterval = setInterval(() => {
+                timerRemainingSeconds--;
+                updateTimerDisplay(timerRemainingSeconds);
+
+                if (timerRemainingSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    isTimerRunning = false;
+                    alert('타이머가 종료되었습니다!');
+                }
+            }, 1000);
+        };
+
+        window.pauseTimer = function() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                isTimerRunning = false;
+            }
+        };
+
+        window.resetTimer = function() {
+            pauseTimer();
+            timerRemainingSeconds = 0;
+            const minEl = document.getElementById('timerMinutes');
+            const secEl = document.getElementById('timerSeconds');
+            const min = parseInt(minEl ? minEl.value : '0') || 0;
+            const sec = parseInt(secEl ? secEl.value : '0') || 0;
+            updateTimerDisplay(min * 60 + sec);
+        };
 
         window.toggleMobileSidebar = () => {
             const sidebar = document.getElementById('sidebar');
@@ -1643,6 +2261,7 @@
             alert(`포인트가 반영되었습니다. (총: ${newPoints}P)`);
         }
 
+        /* --- Notice Logic --- */
         onValue(ref(db, "notices"), (snapshot) => {
             const data = snapshot.val() || {};
             notices = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
@@ -1730,249 +2349,150 @@
             }
         }
 
-        onValue(ref(db, "posts"), (snapshot) => {
+        /* --- Event Logic --- */
+        onValue(ref(db, "events"), (snapshot) => {
             const data = snapshot.val() || {};
-            posts = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
-            renderMainFeed();
-            const searchScreenEl = document.getElementById('searchScreen');
-            if(searchScreenEl && searchScreenEl.classList.contains('active')) executeSearch();
-            if(currentViewItem && currentViewItem.type === 'post') {
-                const updated = posts.find(p => p.id === currentViewItem.id);
-                if(updated) updatePostDetailUI(updated);
-            }
+            events = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
+            renderEvents();
+            renderAdminEvents();
         });
 
-        function createPostHTML(p) {
-            const isAuthorOrAdmin = currentUser && (currentUser.uid === p.uid || isAdmin(currentUser.email));
-            const actionBtns = isAuthorOrAdmin ? `
-                <button class="edit-btn" onclick="openEditModal('post', '${p.id}')">수정</button>
-                <button class="delete-btn" onclick="deletePost('${p.id}')">삭제</button>
-            ` : '';
-            return `
-                <div class="feed-item">
-                    <div class="feed-item-left">
-                        <span class="feed-topic">${p.topic}</span>
-                        <span class="feed-title" onclick="openPostDetail('${p.id}')">${p.title}</span>
-                        ${p.image ? `<span style="color:#818cf8; font-size:0.8rem;">[이미지]</span>` : ''}
-                        ${p.comments ? `<span style="color:var(--danger); font-size:0.8rem;">[${Object.keys(p.comments).length}]</span>` : ''}
-                    </div>
-                    <div class="feed-meta">${renderUserCard(p.avatar, p.author, p.groupTag, p.groupColor)} | ${p.date} ${actionBtns}</div>
-                </div>
-            `;
-        }
-
-        function renderMainFeed() {
-            const feed = document.getElementById('mainFeedList');
-            if(!feed) return;
-            if (posts.length === 0) return feed.innerHTML = '<div style="text-align:center; padding:2rem; color:var(--text-muted);">등록된 게시물이 없습니다.</div>';
-            feed.innerHTML = posts.slice(0, 15).map(createPostHTML).join('');
-        }
-
-        function renderSearchPosts(filteredPosts) {
-            const feed = document.getElementById('searchFeedList');
-            if(!feed) return;
-            if (filteredPosts.length === 0) return feed.innerHTML = '<div style="text-align:center; padding:2rem; color:var(--text-muted);">검색 결과가 없습니다.</div>';
-            feed.innerHTML = filteredPosts.map(createPostHTML).join('');
-        }
-
-        window.executeSearch = () => {
-            const searchInput = document.getElementById('searchInput');
-            if(!searchInput) return;
-            const keyword = searchInput.value.trim().toLowerCase();
-            if(!keyword) return renderSearchPosts(posts);
-            const filtered = posts.filter(p => p.title.toLowerCase().includes(keyword) || p.content.toLowerCase().includes(keyword) || p.author.toLowerCase().includes(keyword));
-            renderSearchPosts(filtered);
-        }
-
-        window.resetSearch = () => { 
-            const searchInput = document.getElementById('searchInput');
-            if(searchInput) searchInput.value = ''; 
-            renderSearchPosts(posts); 
-        }
-
-        window.handlePostSubmit = async function(e, source) {
-            e.preventDefault();
-            if (!currentUser) return alert('로그인이 필요합니다.'), openModal('authModal');
-            if (currentUserProfile.isBanned) return alert("강퇴(추방)되어 글을 작성할 수 없습니다.");
-            if (currentUserProfile.isSuspended) return alert(`일시 정지된 회원입니다. (사유: ${currentUserProfile.suspendedReason || '없음'})`);
-
-            const num = source === 'main' ? '1' : '2';
-            const topicInput = document.getElementById(`postTopic${num}`);
-            const titleInput = document.getElementById(`postTitle${num}`);
-            const contentInput = document.getElementById(`postContent${num}`);
-            const imageInput = document.getElementById(`postImage${num}`);
-            
-            const topic = topicInput ? topicInput.value.trim() : '';
-            const title = titleInput ? titleInput.value.trim() : '';
-            const content = contentInput ? contentInput.value.trim() : '';
-
-            let imageUrl = "";
-            if (imageInput && imageInput.files && imageInput.files[0]) {
-                const file = imageInput.files[0];
-                if (file.size > 1024 * 1024 * 2) return alert("이미지 용량이 너무 큽니다. 2MB 이하의 이미지만 업로드 가능합니다.");
-                imageUrl = await toBase64(file);
+        function renderEvents() {
+            const container = document.getElementById('eventListContainer');
+            if(!container) return;
+            if(events.length === 0) {
+                container.innerHTML = '<span style="color:var(--text-muted); text-align:center; display:block; padding: 2rem;">등록된 행사가 없습니다.</span>';
+                return;
             }
 
-            const now = new Date();
-            const dateStr = `${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+            container.innerHTML = events.map(evt => {
+                const sessions = evt.sessions ? Object.keys(evt.sessions).map(k => ({ id: k, ...evt.sessions[k] })) : [];
+                const sessionsHTML = sessions.length === 0 
+                    ? '<div style="color:var(--text-sub); font-size:0.85rem; margin-top:8px;">등록된 회차가 없습니다.</div>'
+                    : sessions.map(s => {
+                        const reservations = s.reservations || {};
+                        const resCount = Object.keys(reservations).length;
+                        const isReserved = currentUser && reservations[currentUser.uid];
+                        const isFull = resCount >= (s.maxPeople || 0);
 
-            await push(ref(db, "posts"), { 
-                topic, title, content, image: imageUrl,
-                author: currentUserProfile.nickname || '익명', 
-                avatar: currentUserProfile.avatar || '',
-                groupTag: currentUserProfile.groupTag || '',
-                groupColor: currentUserProfile.groupColor || '',
-                date: dateStr, uid: currentUser.uid, createdAt: Date.now(),
-                likes: 0, dislikes: 0, voters: {}
-            });
-            await addPoints(10);
-            e.target.reset();
-            alert("게시물이 등록되었습니다! (+10 포인트)");
-        }
+                        let btnHTML = '';
+                        if(isReserved) {
+                            btnHTML = `<button class="delete-btn" style="padding: 4px 10px;" onclick="cancelReservation('${evt.id}', '${s.id}')">예약 취소</button>`;
+                        } else if(isFull) {
+                            btnHTML = `<button class="submit-btn" style="padding: 4px 10px; background-color: var(--border-color); cursor: not-allowed;" disabled>마감됨</button>`;
+                        } else {
+                            btnHTML = `<button class="submit-btn" style="padding: 4px 10px;" onclick="reserveSession('${evt.id}', '${s.id}')">예약하기</button>`;
+                        }
 
-        function toBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = error => reject(error);
-            });
-        }
-
-        window.deletePost = async function(postId) {
-            if(confirm("게시물을 삭제하시겠습니까?")) {
-                await remove(ref(db, `posts/${postId}`));
-                alert("삭제 완료되었습니다.");
-                if(currentViewItem && currentViewItem.id === postId) showScreen('mainScreen');
-            }
-        }
-
-        window.openNoticeDetail = function(noticeId) {
-            const notice = notices.find(n => n.id === noticeId);
-            if(!notice) return;
-            currentViewItem = { type: 'notice', id: noticeId };
-            document.getElementById('detailTopic').textContent = '공지사항';
-            document.getElementById('detailTitle').textContent = notice.title;
-            document.getElementById('detailAuthor').innerHTML = `<strong>${notice.author || '관리자'}</strong>`;
-            document.getElementById('detailDate').textContent = notice.date || '';
-            document.getElementById('detailContent').textContent = notice.content;
-            document.getElementById('detailImageContainer').innerHTML = '';
-            
-            document.getElementById('reactionBar').style.display = 'none';
-            document.getElementById('commentSectionContainer').style.display = 'none';
-            
-            const actionBtns = document.getElementById('detailActionBtns');
-            if(currentUser && isAdmin(currentUser.email)) {
-                actionBtns.innerHTML = `
-                    <button class="edit-btn" onclick="openEditModal('notice', '${noticeId}')">수정</button>
-                    <button class="delete-btn" onclick="deleteNotice('${noticeId}')">삭제</button>
-                `;
-            } else { actionBtns.innerHTML = ''; }
-            
-            currentScreenBeforeDetail = 'mainScreen';
-            showScreen('detailScreen');
-        }
-
-        window.openPostDetail = function(postId) {
-            const post = posts.find(p => p.id === postId);
-            if(!post) return;
-            currentViewItem = { type: 'post', id: postId };
-            
-            document.getElementById('detailTopic').textContent = post.topic;
-            document.getElementById('detailTitle').textContent = post.title;
-            document.getElementById('detailAuthor').innerHTML = renderUserCard(post.avatar, post.author, post.groupTag, post.groupColor);
-            document.getElementById('detailDate').textContent = post.date;
-            document.getElementById('detailContent').textContent = post.content;
-            
-            if (post.image) {
-                document.getElementById('detailImageContainer').innerHTML = `<img src="${post.image}" class="detail-image" alt="첨부 이미지">`;
-            } else {
-                document.getElementById('detailImageContainer').innerHTML = '';
-            }
-
-            document.getElementById('reactionBar').style.display = 'flex';
-            document.getElementById('commentSectionContainer').style.display = 'block';
-
-            updatePostDetailUI(post);
-            currentScreenBeforeDetail = 'mainScreen';
-            showScreen('detailScreen');
-        }
-
-        function updatePostDetailUI(post) {
-            if(!currentViewItem || currentViewItem.id !== post.id) return;
-
-            document.getElementById('likeCount').textContent = post.likes || 0;
-            document.getElementById('dislikeCount').textContent = post.dislikes || 0;
-            const likeBtn = document.getElementById('likeBtn');
-            const dislikeBtn = document.getElementById('dislikeBtn');
-            
-            if(likeBtn) likeBtn.classList.remove('liked'); 
-            if(dislikeBtn) dislikeBtn.classList.remove('disliked');
-            if (currentUser && post.voters && post.voters[currentUser.uid]) {
-                if (post.voters[currentUser.uid] === 'like' && likeBtn) likeBtn.classList.add('liked');
-                else if (post.voters[currentUser.uid] === 'dislike' && dislikeBtn) dislikeBtn.classList.add('disliked');
-            }
-
-            const commentArray = post.comments ? Object.keys(post.comments).map(k => ({id: k, ...post.comments[k]})) : [];
-            document.getElementById('commentCount').textContent = commentArray.length;
-            document.getElementById('commentList').innerHTML = commentArray.map(c => {
-                const canDel = currentUser && (currentUser.uid === c.uid || isAdmin(currentUser.email));
-                const commentAvatar = c.avatar 
-                    ? `<img src="${c.avatar}" class="comment-avatar" alt="프로필">` 
-                    : `<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%2364748b'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" class="comment-avatar" alt="기본 프로필">`;
-                const cTagHTML = c.groupTag ? `<span style="background-color: ${c.groupColor || '#6366f1'}; padding: 2px 5px; border-radius: 4px; font-size: 0.75rem; color: #fff; margin-left: 3px; font-weight: bold;">${c.groupTag}</span>` : '';
+                        return `
+                            <div class="session-row">
+                                <div>
+                                    <strong>${s.time}</strong> 
+                                    <span style="font-size:0.85rem; color:var(--text-sub); margin-left: 8px;">(${resCount} / ${s.maxPeople}명)</span>
+                                </div>
+                                <div>${btnHTML}</div>
+                            </div>
+                        `;
+                    }).join('');
 
                 return `
-                <li style="padding:10px 0; border-bottom:1px solid var(--border-color);">
-                    <div style="font-size:0.85rem; margin-bottom:4px; display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 5px;">
-                        <span style="display:inline-flex; align-items:center; gap:4px;">
-                            ${commentAvatar}<strong>${c.author}</strong>${cTagHTML} <span style="color:var(--text-muted); margin-left:10px;">${c.date}</span>
-                        </span>
-                        ${canDel ? `<button class="delete-btn" onclick="deleteComment('${post.id}', '${c.id}')">삭제</button>` : ''}
+                    <div class="event-card">
+                        <h3 style="color:var(--primary); font-size:1.15rem; margin-bottom: 6px;">${evt.title}</h3>
+                        <p style="color:var(--text-sub); font-size:0.9rem; margin-bottom: 12px;">${evt.desc || ''}</p>
+                        <div>${sessionsHTML}</div>
                     </div>
-                    <div style="font-size:0.95rem; padding-left: 28px; word-break: break-all;">${c.text}</div>
-                </li>
-            `}).join('');
+                `;
+            }).join('');
         }
 
-        window.openEditModal = function(type, id) {
-            let item;
-            if(type === 'post') item = posts.find(p => p.id === id);
-            else item = notices.find(n => n.id === id);
-            if(!item) return;
-
-            const editTopicInput = document.getElementById('editTopicInput');
-            if(editTopicInput) {
-                editTopicInput.style.display = type === 'post' ? 'block' : 'none';
-                if(type === 'post') editTopicInput.value = item.topic || '';
-            }
-            document.getElementById('editTitleInput').value = item.title;
-            document.getElementById('editContentInput').value = item.content;
+        function renderAdminEvents() {
+            const listContainer = document.getElementById('adminEventListContainer');
+            const selectContainer = document.getElementById('adminEventSelect');
             
-            const editModal = document.getElementById('editModal');
-            editModal.setAttribute('data-target-type', type);
-            editModal.setAttribute('data-target-id', id);
-            openModal('editModal');
-        }
-
-        window.submitEdit = async function() {
-            const editModal = document.getElementById('editModal');
-            const type = editModal.getAttribute('data-target-type');
-            const id = editModal.getAttribute('data-target-id');
-            const title = document.getElementById('editTitleInput').value.trim();
-            const content = document.getElementById('editContentInput').value.trim();
-            if(!title || !content) return alert("제목과 내용을 입력하세요.");
-
-            const updates = { title, content };
-            if(type === 'post') {
-                const topicInput = document.getElementById('editTopicInput');
-                if(topicInput) updates.topic = topicInput.value.trim();
+            if(listContainer) {
+                if(events.length === 0) {
+                    listContainer.innerHTML = '<span style="color:var(--text-muted); font-size:0.9rem;">등록된 행사가 없습니다.</span>';
+                } else {
+                    listContainer.innerHTML = events.map(e => `
+                        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 10px; border:1px solid var(--border-color); margin-bottom:5px; border-radius:6px; flex-wrap: wrap; gap: 8px;">
+                            <div><strong>${e.title}</strong></div>
+                            <button class="delete-btn" onclick="deleteEvent('${e.id}')">행사 삭제</button>
+                        </div>
+                    `).join('');
+                }
             }
 
-            await update(ref(db, `${type}s/${id}`), updates);
-            alert("수정되었습니다.");
-            closeModal('editModal');
+            if(selectContainer) {
+                if(events.length === 0) {
+                    selectContainer.innerHTML = '<option value="">행사가 없습니다</option>';
+                } else {
+                    selectContainer.innerHTML = events.map(e => `<option value="${e.id}">${e.title}</option>`).join('');
+                }
+            }
         }
+
+        window.reserveSession = async function(eventId, sessionId) {
+            if (!currentUser) return alert("로그인이 필요합니다."), openModal('authModal');
+            if (currentUserProfile.isBanned) return alert("추방된 유저는 예약할 수 없습니다.");
+            if (currentUserProfile.isSuspended) return alert("일시 정지된 유저는 예약할 수 없습니다.");
+
+            const resRef = ref(db, `events/${eventId}/sessions/${sessionId}/reservations/${currentUser.uid}`);
+            await set(resRef, {
+                nickname: currentUserProfile.nickname || '사용자',
+                email: currentUser.email,
+                timestamp: Date.now()
+            });
+            alert("예약이 완료되었습니다!");
+        };
+
+        window.cancelReservation = async function(eventId, sessionId) {
+            if (!currentUser) return;
+            if (confirm("예약을 취소하시겠습니까?")) {
+                const resRef = ref(db, `events/${eventId}/sessions/${sessionId}/reservations/${currentUser.uid}`);
+                await remove(resRef);
+                alert("예약이 취소되었습니다.");
+            }
+        };
+
+        window.addEvent = async function() {
+            if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
+            const titleInput = document.getElementById('adminEventTitle');
+            const descInput = document.getElementById('adminEventDesc');
+            const title = titleInput ? titleInput.value.trim() : '';
+            const desc = descInput ? descInput.value.trim() : '';
+            if(!title) return alert("행사명을 입력해주세요.");
+
+            await push(ref(db, "events"), { title, desc, createdAt: Date.now() });
+            if(titleInput) titleInput.value = '';
+            if(descInput) descInput.value = '';
+            alert("행사가 생성되었습니다.");
+        };
+
+        window.deleteEvent = async function(eventId) {
+            if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
+            if(confirm("정말로 이 행사를 삭제하시겠습니까?")) {
+                await remove(ref(db, `events/${eventId}`));
+                alert("삭제되었습니다.");
+            }
+        };
+
+        window.addSession = async function() {
+            if(!currentUser || !isAdmin(currentUser.email)) return alert("관리자만 가능합니다.");
+            const select = document.getElementById('adminEventSelect');
+            const timeInput = document.getElementById('adminSessionTime');
+            const maxInput = document.getElementById('adminSessionMax');
+
+            const eventId = select ? select.value : '';
+            const time = timeInput ? timeInput.value.trim() : '';
+            const maxPeople = maxInput ? parseInt(maxInput.value) : NaN;
+
+            if(!eventId || !time || isNaN(maxPeople) || maxPeople < 1) return alert("회차 정보를 정확히 입력해주세요.");
+
+            await push(ref(db, `events/${eventId}/sessions`), { time, maxPeople, createdAt: Date.now() });
+            if(timeInput) timeInput.value = '';
+            if(maxInput) maxInput.value = '';
+            alert("회차가 추가되었습니다.");
+        };
     </script>
 </body>
 </html>
